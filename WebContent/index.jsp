@@ -2,8 +2,7 @@
     pageEncoding="ISO-8859-1"%>
  <%@ page import="database.MongoConnection" %>
  <% MongoConnection mC= new MongoConnection();
- 	mC.deleteElement("persona", "Nome", "Luca");
- 	
+ 
  %>
 <!DOCTYPE html>
 <html>
@@ -57,5 +56,12 @@
 			</div>
 			<input class="row" type="submit" value="Cerca impianto" style="margin: 30px auto;">
 		</form>
+		<div id="demoMap" style="height:250px"></div>
+		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+ <script>
+    map = new OpenLayers.Map("demoMap");
+    map.addLayer(new OpenLayers.Layer.OSM());
+    map.zoomToMaxExtent();
+</script>
 	</body>
 </html>

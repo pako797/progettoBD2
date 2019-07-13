@@ -19,7 +19,7 @@ public class MongoConnection {
 		// TODO Auto-generated constructor stub
 		try {
 		MongoClient mC=new MongoClient("localhost",27017);
-		database = mC.getDatabase("test");
+		database = mC.getDatabase("carburante");
 		 for (String name : database.listCollectionNames()) {
 	            System.out.println(name);
 	        }
@@ -29,6 +29,24 @@ public class MongoConnection {
 		catch(Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	public void findElement(String collection, String comune, String provincia){
+	MongoCollection<Document> personaCollection = database.getCollection(collection);
+		
+		//Recupero di un documento
+        HashMap<String,Object> filterMap = new HashMap<>();
+        filterMap.put("Comune", comune);
+        filterMap.put("Provincia", provincia);
+        
+        //Costruzione documento filtro
+        Bson filter = new Document(filterMap);
+        FindIterable<Document> docIterator = personaCollection.find().filter(filter);
+        MongoCursor<Document> mongoCursor = docIterator.iterator();
+
+        while(mongoCursor.hasNext()) {
+        System.out.println(mongoCursor.next());
+        }
 	}
 	
 	public void addElement(String collection) {
@@ -56,7 +74,7 @@ public class MongoConnection {
         Bson filter = new Document(filterMap);
         FindIterable<Document> docIterator = personaCollection.find().filter(filter);
         MongoCursor<Document> mongoCursor = docIterator.iterator();
-        
+
         /*Procediamo subito con il next per questo test,
           sappiamo di trovare un solo documento*/
         Document personaDoc = mongoCursor.next();
@@ -69,11 +87,12 @@ public class MongoConnection {
         
         //Aggiornamento
         personaCollection.updateOne(personaDoc, updateDocument);
+
 	}
 	
 	public void deleteElement(String collection, String val1, String val2) {
 		
-		MongoCollection<Document> personaCollection = database.getCollection(collection);
+		MongoCollection<Document> fuelCollection = database.getCollection(collection);
 		
 		//Recupero di un documento
         HashMap<String,Object> filterMap = new HashMap<>();
@@ -81,24 +100,24 @@ public class MongoConnection {
         
         //Costruzione documento filtro
         Bson filter = new Document(filterMap);
-        FindIterable<Document> docIterator = personaCollection.find().filter(filter);
+        FindIterable<Document> docIterator = fuelCollection.find().filter(filter);
         MongoCursor<Document> mongoCursor = docIterator.iterator();
         
         /*Procediamo subito con il next per questo test,
         sappiamo di trovare un solo documento*/
-        Document personaDoc = mongoCursor.next();
+        Document fuelDoc = mongoCursor.next();
         
 		/*Costruzione nuovo documento filtro*/
         filterMap.clear();
         filterMap.put(val1, val2);
         filter = new Document(filterMap);
         /*Recupero documento modificato*/
-        docIterator = personaCollection.find().filter(filter);
+        docIterator = fuelCollection.find().filter(filter);
         mongoCursor = docIterator.iterator();
         /*Cancellazione documento*/
         if(mongoCursor.hasNext()) {
-         personaDoc = mongoCursor.next();
-         personaCollection.deleteOne(personaDoc);
+        	fuelDoc = mongoCursor.next();
+         fuelCollection.deleteOne(fuelDoc);
          System.out.println("Documento cancellato");
         }
 	}
