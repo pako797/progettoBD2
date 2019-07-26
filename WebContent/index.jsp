@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
  <%@ page import="database.MongoConnection" %>
  <% MongoConnection mC= new MongoConnection();
- 
+ mC.findElement("stazioni","BATTIPAGLIA","SA");
  %>
 <!DOCTYPE html>
 <html>
@@ -13,49 +13,61 @@
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	
-	<body>
-		<div class="row" style="width: 90%;display: flex;height: 10vw;margin: 25px auto 0;">
-			<a class="col-2 pull-left" href="./Home.jsp">			
-				<img src="logo_sito.png" style="width: 100%;" alt="logo" >
-			</a>
-		 	<span style="margin: 50px auto auto;display: block;float: left;line-height: 1;font-size: 40px;" class="text-uppercase text-center font-weight-bold col-8 pull-left">Search the Best refuelling</span>
-			<a class="pull-right col-2 text-right" href="./Login.jsp" style="margin: 25px 0 auto;">
-				<span >Login admin</span>
-			</a>
+	<body class="home">
+	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">
+
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="#">Ricerca
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
+
+			</ul>
 		</div>
-		<form action="TODO" class="text-center" style="margin-top: 80px;">
-			<span style="font-size: 20px;">Trova le stazioni di rifornimento più vicine a te:</span>
-			<input class="row" type="text" name="Comune" placeholder="Comune" style="margin: 25px auto 15px;">
-			<input class="row" type="text" name="Provincia" placeholder="Provincia" style="margin: 15px auto;">
-			<div class="row" style="width: 50%; margin: 0 auto;">
-				<span class="col-12" style="margin: 15px auto; font-size: 18px;">Scegli il carburante:</span>
-				<label id="carb-1" class="col-4">
-					<span class="text-right col-6">$Carburante1</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-1">
-				</label>
-				<label id="carb-2" class="col-4">
-					<span class="text-right col-6">$Carburante2</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-2">
-				</label>
-				<label id="carb-3" class="col-4">
-					<span class="text-right col-6">$Carburante3</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-3">
-				</label>
-				<label id="carb-4" class="col-4">
-					<span class="text-right col-6">$Carburante4</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-4">
-				</label>
-				<label id="carb-5" class="col-4">
-					<span class="text-right col-6">$Carburante5</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-5">
-				</label>
-				<label id="carb-6" class="col-4">
-					<span class="text-right col-6">$Carburante6</span>
-					<input class="col-6 pull-right" type="checkbox" name="carb-6">
-				</label>
+	</nav>
+	<br>
+	<br>
+	<br>
+	
+	<div class="text-center mb-4">
+    <img class="mb-4" src="logo_sito.png" alt="" width="170" height="150">
+    <h1 class="h3 mb-3 font-weight-normal">Search the Best refuelling</h1>
+  </div>
+	
+		<div class="container">
+		<div class="row">
+			<div class="col-md-4 mx-auto">
+				<form>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Ricercaimpianto vicino a te:</label> <input type="text"
+							class="form-control" id="comune"
+							aria-describedby="emailHelp" placeholder="Comune">
+
+					</div>
+					<div class="form-group form-check"></div>
+					
+					<div class="row">
+			<div class="col-md-4 mx-auto">
+			<button type="submit" class="btn btn-primary">Ricerca</button>
 			</div>
-			<input class="row" type="submit" value="Cerca impianto" style="margin: 30px auto;">
-		</form>
+			</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+		
+		
 		<div id="demoMap" style="height:250px"></div>
 		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
  <script>
@@ -64,4 +76,20 @@
     map.zoomToMaxExtent();
 </script>
 	</body>
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+	
+	
 </html>
