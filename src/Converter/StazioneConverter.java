@@ -36,7 +36,6 @@ public class StazioneConverter {
 		s.setBandiera((String) doc.get("Bandiera"));
 		s.setTipoImpianto((String) doc.get("TipoImpianto"));
 		s.setNomeImpianto((String) (doc.get("NomeImpianto")+""));
-		System.out.println(doc.get("NomeImpianto"));
 		s.setIndirizzo((String) doc.get("Indirizzo"));
 		s.setComune((String) doc.get("Comune"));
 		s.setProvincia((String) doc.get("Provincia"));

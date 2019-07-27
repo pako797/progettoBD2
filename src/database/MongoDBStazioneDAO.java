@@ -44,6 +44,16 @@ public class MongoDBStazioneDAO {
 			}
 			return data;
 		}
+		
+		public Stazione ricercaStazioneId(int id) {
+			Stazione data = new Stazione();
+			DBObject query = BasicDBObjectBuilder.start()
+					.append("idImpianto", id).get();
+			DBCursor cursor = col.find(query);
+			DBObject doc = cursor.next();
+			data = StazioneConverter.toStazione(doc);
+			return data;
+		}
 
 
 	}

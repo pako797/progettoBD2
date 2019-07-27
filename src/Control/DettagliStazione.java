@@ -15,16 +15,16 @@ import Beans.Stazione;
 import database.MongoDBStazioneDAO;
 
 /**
- * Servlet implementation class RicercaStazioneComune
+ * Servlet implementation class DettagliStazione
  */
-@WebServlet("/RicercaStazioneComune")
-public class RicercaStazioneComune extends HttpServlet {
+@WebServlet("/DettagliStazione")
+public class DettagliStazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RicercaStazioneComune() {
+    public DettagliStazione() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,31 +34,20 @@ public class RicercaStazioneComune extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int id = Integer.parseInt(request.getParameter("id"));
 		
-		String comune = request.getParameter("comune").toUpperCase();
-		if ((comune == null || comune.equals(""))) {
-			response.sendRedirect(request.getContextPath() + "/index.jsp");
-		}else {
+	
 			MongoClient mongo = (MongoClient) request.getServletContext()
 					.getAttribute("MONGO_CLIENT");
 			MongoDBStazioneDAO stazioneDAO = new MongoDBStazioneDAO(mongo);
-			List<Stazione> stazioni = stazioneDAO.ricercaStazioneComune(comune);
+			Stazione s = stazioneDAO.ricercaStazioneId(id);
+						
+		
+			request.getSession().setAttribute("stazione", s);
 			
-			
-			request.getSession().setAttribute("stazioni", stazioni);
-			
-			response.sendRedirect(request.getContextPath() + "/ricercaComune.jsp");
+			response.sendRedirect(request.getContextPath() + "/dettagli.jsp");
 
-			
-			
-			
-		
-		}
-		
-		
-		
-		
-		
+	
 	}
 
 	/**

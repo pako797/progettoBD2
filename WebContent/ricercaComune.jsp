@@ -78,7 +78,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<td><%=data.getComune()%><td>
 				<td><%=data.getIndirizzo()%>
 				<td>
-				<td><a class="btn btn-primary">Dettagli</a>
+				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a>
 				<td>
 			</tr>
 			<%
