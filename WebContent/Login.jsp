@@ -57,12 +57,12 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<div class="row">
 			<div class="col-md-4 mx-auto">
 
-				<form action="" method="post">
+				<form action="LoginServlet" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="material-icons">person</i></span>
 						</div>
-						<input type="text" name="admin" class="form-control"
+						<input type="text" name="user" id="user" class="form-control"
 							placeholder="Username">
 					</div>
 
@@ -70,7 +70,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="material-icons">verified_user</i></span>
 						</div>
-						<input type="password" name="password" class="form-control"
+						<input type="password" name="password" id="password" class="form-control"
 							placeholder="Password">
 					</div>
 

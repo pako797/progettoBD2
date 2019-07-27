@@ -20,7 +20,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 
 <body class="home">
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
