@@ -8,6 +8,9 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
+		<meta name="viewport"
+	content="width=device-width, user-scalable=no,
+initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Home page</title>
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/style.css">
@@ -50,11 +53,11 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-md-4 mx-auto">
-				<form>
+				<form method="GET" action="RicercaStazioneComune">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Ricercaimpianto vicino a te:</label> <input type="text"
-							class="form-control" id="comune"
-							aria-describedby="emailHelp" placeholder="Comune">
+						<label for="exampleInputEmail1">Ricercaimpianto vicino a te:</label> 
+						<input type="text" class="form-control" id="comune"
+							aria-describedby="emailHelp" placeholder="Comune" name="comune">
 
 					</div>
 					<div class="form-group form-check"></div>
@@ -74,10 +77,10 @@
 		<div id="demoMap" style="height:250px"></div>
 		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
  <script>
-    map = new OpenLayers.Map("demoMap");
-    map.addLayer(new OpenLayers.Layer.OSM());
-    map.zoomToMaxExtent();
-</script>
+		map = new OpenLayers.Map("demoMap");
+		map.addLayer(new OpenLayers.Layer.OSM());
+		map.zoomToMaxExtent();
+	</script>
 	</body>
 	
 	

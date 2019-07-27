@@ -13,10 +13,10 @@ public class PrezzoConverter {
 	public static DBObject toDbObject(Prezzo p) {
 		BasicDBObjectBuilder builder = BasicDBObjectBuilder.start()
 				.append("idImpianto", p.getIdImpianto())
-				.append("descrizione_impianto",p.getDescrizione_impianto())
+				.append("descCarburante",p.getDescCarburante())
 				.append("prezzo", p.getPrezzo())
 				.append("isSelf", p.getIsSelf())
-				.append("dt_Comune", p.getDt_Comune());
+				.append("dtComu", p.getDtComu());
 		
 		
 		if (p.getId() != null)
@@ -28,10 +28,10 @@ public class PrezzoConverter {
 	public static Prezzo toPrezzo(DBObject doc) {
 		Prezzo p = new Prezzo();
 		p.setIdImpianto((int) doc.get("idImpianto"));
-		p.setDescrizione_impianto((String) doc.get("descrizione_impianto"));
+		p.setDescCarburante((String) doc.get("descCarburante"));
 		p.setPrezzo((double) doc.get("prezzo"));
 		p.setIsSelf((int) doc.get("isSelf"));
-		p.setDt_Comune((String) doc.get("dt_Comune"));
+		p.setDtComu((String) doc.get("dtComu"));
 		ObjectId id = (ObjectId) doc.get("_id");
 		p.setId(id.toString());
 		return p;

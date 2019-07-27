@@ -2,12 +2,12 @@ package Beans;
 
 public class Stazione {
 	
-	private String id;
+	private String _id;
 	private int idImpianto;
-	private String gestore;
-	private String bandiera;
-	private String tipo_impianto;
-	private String nome_impianto;
+	private String Gestore;
+	private String Bandiera;
+	private String TipoImpianto;
+	private String NomeImpianto;
 	private String indirizzo;
 	private String comune;
 	private String provincia;
@@ -15,46 +15,19 @@ public class Stazione {
 	private String longitudine;
 	
 	
-	
-	public Stazione(String id, int idImpianto, String gestore, String bandiera, String tipo_impianto,
-			String nome_impianto, String indirizzo, String comune, String provincia, String latitudine,
-			String longitudine) {
-		super();
-		this.id = id;
-		this.idImpianto = idImpianto;
-		this.gestore = gestore;
-		this.bandiera = bandiera;
-		this.tipo_impianto = tipo_impianto;
-		this.nome_impianto = nome_impianto;
-		this.indirizzo = indirizzo;
-		this.comune = comune;
-		this.provincia = provincia;
-		this.latitudine = latitudine;
-		this.longitudine = longitudine;
-	}
-	
-	
-
-
-
 	public Stazione() {
 		super();
 	}
 
 
-
-
-
 	public String getId() {
-		return id;
+		return _id;
 	}
-
 
 
 	public void setId(String id) {
-		this.id = id;
+		this._id = id;
 	}
-
 
 
 	public int getIdImpianto() {
@@ -62,59 +35,49 @@ public class Stazione {
 	}
 
 
-
 	public void setIdImpianto(int idImpianto) {
 		this.idImpianto = idImpianto;
 	}
 
 
-
 	public String getGestore() {
-		return gestore;
+		return Gestore;
 	}
-
 
 
 	public void setGestore(String gestore) {
-		this.gestore = gestore;
+		Gestore = gestore;
 	}
-
 
 
 	public String getBandiera() {
-		return bandiera;
+		return Bandiera;
 	}
-
 
 
 	public void setBandiera(String bandiera) {
-		this.bandiera = bandiera;
+		Bandiera = bandiera;
 	}
 
 
-
-	public String getTipo_impianto() {
-		return tipo_impianto;
+	public String getTipoImpianto() {
+		return TipoImpianto;
 	}
 
 
-
-	public void setTipo_impianto(String tipo_impianto) {
-		this.tipo_impianto = tipo_impianto;
+	public void setTipoImpianto(String tipoImpianto) {
+		TipoImpianto = tipoImpianto;
 	}
 
 
-
-	public String getNome_impianto() {
-		return nome_impianto;
+	public String getNomeImpianto() {
+		return NomeImpianto;
 	}
 
 
-
-	public void setNome_impianto(String nome_impianto) {
-		this.nome_impianto = nome_impianto;
+	public void setNomeImpianto(String nomeImpianto) {
+		NomeImpianto = nomeImpianto;
 	}
-
 
 
 	public String getIndirizzo() {
@@ -122,11 +85,9 @@ public class Stazione {
 	}
 
 
-
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
-
 
 
 	public String getComune() {
@@ -134,11 +95,9 @@ public class Stazione {
 	}
 
 
-
 	public void setComune(String comune) {
 		this.comune = comune;
 	}
-
 
 
 	public String getProvincia() {
@@ -146,23 +105,19 @@ public class Stazione {
 	}
 
 
-
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
 
 
-
-	public String getLatidudine() {
+	public String getLatitudine() {
 		return latitudine;
 	}
 
 
-
-	public void setLatidudine(String latitudine) {
+	public void setLatitudine(String latitudine) {
 		this.latitudine = latitudine;
 	}
-
 
 
 	public String getLongitudine() {
@@ -170,11 +125,16 @@ public class Stazione {
 	}
 
 
-
 	public void setLongitudine(String longitudine) {
 		this.longitudine = longitudine;
 	}
 	
+	
+	
+	
+	
+	
+
 	
 
 }

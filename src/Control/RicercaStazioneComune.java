@@ -1,11 +1,18 @@
 package Control;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mongodb.MongoClient;
+
+import Beans.Stazione;
+import database.MongoDBStazioneDAO;
 
 /**
  * Servlet implementation class RicercaStazioneComune
@@ -27,7 +34,34 @@ public class RicercaStazioneComune extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String comune = request.getParameter("comune").toUpperCase();
+		if ((comune == null || comune.equals(""))) {
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+		}else {
+			MongoClient mongo = (MongoClient) request.getServletContext()
+					.getAttribute("MONGO_CLIENT");
+			MongoDBStazioneDAO stazioneDAO = new MongoDBStazioneDAO(mongo);
+			List<Stazione> stazioni = stazioneDAO.ricercaStazioneComune(comune);
+			
+			for(Stazione data : stazioni) {
+				System.out.println(data.getGestore());
+			}
+			
+			request.getSession().setAttribute("stazioni", stazioni);
+			
+			response.sendRedirect(request.getContextPath() + "/ricercaComune.jsp");
+
+			
+			
+			
+		
+		}
+		
+		
+		
+		
+		
 	}
 
 	/**
