@@ -1,8 +1,13 @@
 package database;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bson.types.ObjectId;
 
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
@@ -25,6 +30,19 @@ public class MongoDBPrezzoDAO {
 		ObjectId id = (ObjectId) doc.get("_id");
 		p.setId(id.toString());
 		return p;
+	}
+	
+	public List<Prezzo> ricercaPrezziStazione(int id){
+		List<Prezzo> data = new ArrayList<Prezzo>();
+		DBObject query = BasicDBObjectBuilder.start()
+				.append("idImpianto", id).get();
+		DBCursor cursor = col.find(query);
+		while (cursor.hasNext()) {
+			DBObject doc = cursor.next();
+			Prezzo p = PrezzoConverter.toPrezzo(doc);
+			data.add(p);
+		}
+		return data;
 	}
 
 }

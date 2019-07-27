@@ -53,7 +53,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		} else {
 	%>
 
-	<table class="table table-striped table-dark"">
+	<table class="table table-striped table-responsive table-dark"">
 		<thead>
 			<tr>
 				<th scope="col">Id</th>
@@ -90,6 +90,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<%
 		}
 	%>
+
 
 </body>
 

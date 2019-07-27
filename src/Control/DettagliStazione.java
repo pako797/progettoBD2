@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mongodb.MongoClient;
 
+import Beans.Prezzo;
 import Beans.Stazione;
+import database.MongoDBPrezzoDAO;
 import database.MongoDBStazioneDAO;
 
 /**
@@ -40,11 +42,17 @@ public class DettagliStazione extends HttpServlet {
 			MongoClient mongo = (MongoClient) request.getServletContext()
 					.getAttribute("MONGO_CLIENT");
 			MongoDBStazioneDAO stazioneDAO = new MongoDBStazioneDAO(mongo);
+			
+			MongoDBPrezzoDAO prezzoDAO = new MongoDBPrezzoDAO(mongo);
+
+			
+			
 			Stazione s = stazioneDAO.ricercaStazioneId(id);
-						
+			List<Prezzo> prezziStazione = prezzoDAO.ricercaPrezziStazione(id);
 		
 			request.getSession().setAttribute("stazione", s);
-			
+			request.getSession().setAttribute("prezzi", prezziStazione);
+
 			response.sendRedirect(request.getContextPath() + "/dettagli.jsp");
 
 	

@@ -1,7 +1,14 @@
+<%
+MongoClient mongo = (MongoClient) request.getServletContext()
+.getAttribute("MONGO_CLIENT");
+MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
+List<Comune> comuni = comuneDAO.readAllComuni();
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@page import="java.util.*,Control.*,Beans.*, database.*,com.mongodb.*"%>
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport"
@@ -54,8 +61,15 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<form method="GET" action="RicercaStazioneComune">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Ricerca impianto vicino a
-							te:</label> <input type="text" class="form-control" id="comune"
-							aria-describedby="emailHelp" placeholder="Comune" name="comune">
+							te:</label> 
+							<div class="form-group">
+						<label for="exampleFormControlSelect1">Comune</label> <select
+							class="form-control" id="exampleFormControlSelect1" name="comune">
+							<% for(Comune temp : comuni){ %>
+							<option><%=temp.getComune() %></option>
+							<%} %>
+						</select>
+					</div>
 
 					</div>
 					
@@ -72,7 +86,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	</div>
 
 
-	<div id="demoMap" style="height: 250px"></div>
+	<div id="demoMap" style="width: 100%; height: 100%; position:fixed"></div>
 	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 	<script>
 		map = new OpenLayers.Map("demoMap");
