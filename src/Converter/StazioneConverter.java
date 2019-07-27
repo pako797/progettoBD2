@@ -14,8 +14,8 @@ public class StazioneConverter {
 				.append("idImpianto", s.getIdImpianto())
 				.append("Gestore",s.getGestore())
 				.append("Bandiera", s.getBandiera())
-				.append("TipoImpianto", s.getIdImpianto())
-				.append("NomeImpianto", s.getIdImpianto())
+				.append("TipoImpianto", s.getTipoImpianto())
+				.append("NomeImpianto", s.getNomeImpianto())
 				.append("Indirizzo", s.getIndirizzo())
 				.append("Comune", s.getComune())
 				.append("Provincia", s.getProvincia())
@@ -32,15 +32,15 @@ public class StazioneConverter {
 	public static Stazione toStazione(DBObject doc) {
 		Stazione s = new Stazione();
 		s.setIdImpianto((int) doc.get("idImpianto"));
-		s.setGestore((String) doc.get("Gestore"));
-		s.setBandiera((String) doc.get("Bandiera"));
-		s.setTipoImpianto((String) doc.get("TipoImpianto"));
+		s.setGestore((String) (doc.get("Gestore")+""));
+		s.setBandiera((String) (doc.get("Bandiera")+""));
+		s.setTipoImpianto((String) (doc.get("TipoImpianto")+""));
 		s.setNomeImpianto((String) (doc.get("NomeImpianto")+""));
-		s.setIndirizzo((String) doc.get("Indirizzo"));
-		s.setComune((String) doc.get("Comune"));
-		s.setProvincia((String) doc.get("Provincia"));
-		s.setLatitudine((String) doc.get("Latitudine"));
-		s.setLongitudine((String) doc.get("Longitudine"));
+		s.setIndirizzo((String) (doc.get("Indirizzo")+""));
+		s.setComune((String) (doc.get("Comune")+""));
+		s.setProvincia((String) (doc.get("Provincia")+""));
+		s.setLatitudine((String) (doc.get("Latitudine")+""));
+		s.setLongitudine((String) (doc.get("Longitudine")+""));
 		ObjectId id = (ObjectId) doc.get("_id");
 		s.setId(id.toString());
 		return s;

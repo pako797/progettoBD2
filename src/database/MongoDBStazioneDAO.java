@@ -28,10 +28,21 @@ public class MongoDBStazioneDAO {
 			this.col.insert(doc);
 			ObjectId id = (ObjectId) doc.get("_id");
 			s.setId(id.toString());
+			System.out.println(s.getNomeImpianto());
 			return s;
 		}
 		
-		
+		public List<Stazione> readAllPerson() {
+			List<Stazione> data = new ArrayList<Stazione>();
+			DBCursor cursor = col.find();
+			while (cursor.hasNext()) {
+				DBObject doc = cursor.next();
+				Stazione s = StazioneConverter.toStazione(doc);
+				data.add(s);
+			}
+			return data;
+		}
+
 		public List<Stazione> ricercaStazioneComune(String comune) {
 			List<Stazione> data = new ArrayList<Stazione>();
 			DBObject query = BasicDBObjectBuilder.start()

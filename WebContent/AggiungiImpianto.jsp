@@ -49,41 +49,48 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 mx-auto">
-				<form action="TODO" class="col-12 text-center">
+				<form  method="GET" action="AddImpiantoServlet" class="col-12 text-center">
+				<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="Gestore" id="id" name="id"
+							aria-label="Id" aria-describedby="basic-addon1">
+					</div>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Gestore"
+						<input type="text" class="form-control" placeholder="Gestore" id="gestore" name="gestore"
 							aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 
 					<div class="input-group mb-3">
 
-						<input type="text" class="form-control" placeholder="Bandiera"
+						<input type="text" class="form-control" placeholder="Bandiera" id="bandiera" name="bandiera"
 							aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 
-					<div class="input-group mb-3">
-
-						<input type="text" class="form-control"
-							placeholder="Tipo impianto" aria-label="Username"
-							aria-describedby="basic-addon1">
+					<div class="form-group">
+					<label for="exampleFormControlSelect1">Tipo Impianto</label>
+						<select
+							class="form-control" id="tipo" name="tipo" id="exampleFormControlSelect1">
+							<option>Altro</option>
+							<option>Strada Statale</option>
+							<option>Auto Stradale</option>
+						</select>
 					</div>
 
 					<div class="input-group mb-3">
 
 						<input type="text" class="form-control"
-							placeholder="Nome impianto" aria-label="Username"
+							placeholder="Nome impianto" aria-label="Username" id="nome" name="nome"
 							aria-describedby="basic-addon1">
 					</div>
 
 					<div class="input-group mb-3">
 
 						<input type="text" class="form-control" placeholder="Indirizzo"
-							aria-label="Username" aria-describedby="basic-addon1">
+							aria-label="Username" id="indirizzo" name="indirizzo" aria-describedby="basic-addon1">
 					</div>
 
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Provincia</label> <select
-							class="form-control" id="exampleFormControlSelect1">
+							class="form-control" id="provincia" name="provincia" id="exampleFormControlSelect1">
 							<option>Napoli</option>
 							<option>2</option>
 							<option>3</option>
@@ -96,7 +103,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Comune</label> <select
-							class="form-control" id="exampleFormControlSelect1">
+							class="form-control" id="comune" name="comune" id="exampleFormControlSelect1">
 							<option>Napoli</option>
 							<option>2</option>
 							<option>3</option>

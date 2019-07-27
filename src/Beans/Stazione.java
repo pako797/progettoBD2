@@ -46,7 +46,7 @@ public class Stazione {
 
 
 	public void setGestore(String gestore) {
-		Gestore = gestore;
+		this.Gestore = gestore;
 	}
 
 
@@ -56,7 +56,7 @@ public class Stazione {
 
 
 	public void setBandiera(String bandiera) {
-		Bandiera = bandiera;
+		this.Bandiera = bandiera;
 	}
 
 
@@ -66,7 +66,7 @@ public class Stazione {
 
 
 	public void setTipoImpianto(String tipoImpianto) {
-		TipoImpianto = tipoImpianto;
+		this.TipoImpianto = tipoImpianto;
 	}
 
 
@@ -76,7 +76,7 @@ public class Stazione {
 
 
 	public void setNomeImpianto(String nomeImpianto) {
-		NomeImpianto = nomeImpianto;
+		this.NomeImpianto = nomeImpianto;
 	}
 
 
