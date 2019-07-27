@@ -51,7 +51,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 			<div class="col-md-4 mx-auto">
 				<form  method="GET" action="AddImpiantoServlet" class="col-12 text-center">
 				<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Gestore" id="id" name="id"
+						<input type="text" class="form-control" placeholder="Id" id="id" name="id"
 							aria-label="Id" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group mb-3">
