@@ -1,104 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<meta name="viewport"
-	content="width=device-width, user-scalable=no,
-initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<title>Login admin</title>
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/login.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-</head>
-
-<body>
-
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="./index.jsp"">Home <span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ricerca <span
-						class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
-					
-					<li class="nav-item active"><a class="nav-link"
-					href="./Login.jsp"">Login</a></li>
-
-			</ul>
-			
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Login admin</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	
+	<body>
+		<div class="row" style="width: 90%;display: flex;height: 10vw;margin: 25px auto 0;">
+			<a class="col-2 pull-left" href="./Home.jsp">			
+				<img src="logo_sito.png" style="width: 100%;" alt="logo">
+			</a>
+		 	<span class="col-8 text-center text-uppercase font-weight-bold" style="margin: 50px auto auto;display: block;float: left;line-height: 1;font-size: 40px;">Search the Best refuelling</span>
+			<div class="col-2"></div>
 		</div>
-	</nav>
-
-<br>
-<br>
-<br>
-	<div class="container">
-
-
-		<div class="text-center mb-4">
-			<img class="mb-4" src="logo_sito.png" alt="" width="170" height="150">
-			<h1 class="h3 mb-3 font-weight-normal">Search the Best
-				refuelling</h1>
-		</div>
-		<div class="row">
-			<div class="col-md-4 mx-auto">
-
-				<form action="" method="post">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="material-icons">person</i></span>
-						</div>
-						<input type="text" name="admin" class="form-control"
-							placeholder="Username">
-					</div>
-
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="material-icons">verified_user</i></span>
-						</div>
-						<input type="password" name="password" class="form-control"
-							placeholder="Password">
-					</div>
-
-					<div class="form-group">
-						<input type="submit" name="btn" value="Login"
-							class="btn btn-primary float-right login_btn">
-					</div>
-
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-
-
-</body>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-	crossorigin="anonymous"></script>
-
+		<form action="TODO" style="margin-top: 80px;">
+			<input class="row" type="text" name="username" placeholder="Username" style="margin: 10px auto;">
+			<input class="row" type="password" name="password" placeholder="Password" style="margin: 15px auto;">
+			<input class="row" type="submit" value="Login" style="margin: 30px auto;">
+		</form>
+	</body>
 </html>
