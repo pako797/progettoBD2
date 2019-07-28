@@ -25,9 +25,6 @@
 				<li class="nav-item active"><a class="nav-link"
 					href="./index.jsp"">Home <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ricerca <span
-						class="sr-only">(current)</span>
-				</a></li>
 				<%if(admin!=null){ %>
 				<li class="nav-item"><a class="nav-link"
 					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
