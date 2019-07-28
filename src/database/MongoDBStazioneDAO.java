@@ -32,7 +32,7 @@ public class MongoDBStazioneDAO {
 			return s;
 		}
 		
-		public List<Stazione> readAllPerson() {
+		public List<Stazione> readAllStazioni() {
 			List<Stazione> data = new ArrayList<Stazione>();
 			DBCursor cursor = col.find();
 			while (cursor.hasNext()) {

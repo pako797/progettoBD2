@@ -66,7 +66,7 @@ public class AddImpiantoServlet extends HttpServlet {
 			stazioneDAO.createStazione(s);
 			System.out.println("Person Added Successfully with id="+s.getId());
 			request.setAttribute("success", "Person Added Successfully");
-			List<Stazione> stazioni = stazioneDAO.readAllPerson();
+			List<Stazione> stazioni = stazioneDAO.readAllStazioni();
 
 			request.getSession().setAttribute("stazioni", stazioni);
 			response.sendRedirect(request.getContextPath() + "/AggiungiImpianto.jsp");

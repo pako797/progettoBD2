@@ -20,32 +20,10 @@
 	content="width=device-width, user-scalable=no,
 initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <title>Risultato Ricerca</title>
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#"> </a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link"
-					href="./index.jsp"">Home <span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Ricerca <span
-						class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
-
-			</ul>
-		</div>
-	</nav>
+ <%@include file="header.jsp" %>
 
 
 	<%
@@ -60,9 +38,12 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		} else {
 	%>
 
-	<table class="table table-striped table-responsive table-dark"">
-		<thead>
-			<tr>
+	<table class="table table-striped custab">
+    <thead>
+    <div style="margin-bottom: 10px;">
+    <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
+    </div>
+      <tr>
 				<th scope="col">Id</th>
 				<th scope="col">Gestore</th>
 				<th scope="col">Bandiera</th>
@@ -70,28 +51,30 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<th scope="col">Comune</th>
 				<th scope="col">Indirizzo</th>
 				<%if((confronto == null) || (confronto.booleanValue() == false)){ %>
-<th scope="col">Dettagli</th>				
+ 				  <th class="text-center">Action</th>			
 				<%} %>
 				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
 				<th scope="col">Confronto</th>
 				
 				<%} %>
 			</tr>
-		</thead>
-		<tbody>
-			<%
+    </thead>
+    <%
 				for (Stazione data : stazioni) {
 			%>
-			<tr>
+    <tr>
 				<td><%=data.getIdImpianto() + ""%></td>
 				<td><%=data.getGestore()%></td>
 				<td><%=data.getBandiera()%></td>
 				<td><%=data.getTipoImpianto()%></td>
 				<td><%=data.getComune()%></td>
 				<td><%=data.getIndirizzo()%></td>
-				<%if((confronto == null) || (confronto.booleanValue() == false)){ %>
+				<%if(((confronto == null) || (confronto.booleanValue() == false)) && (admin==null)){ %>
 				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a></td>
-			<%} %>
+				<%} %>
+				<%if(admin!=null){ %>
+				 <td class="text-center"><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class='btn btn-info btn-xs'><i class="material-icons"> remove_red_eye </i></a> <a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-danger btn-xs"><i class="material-icons"> delete </i></a></td>
+				<%} %>
 				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
 				<%if(stazione != null && stazione.getIdImpianto() == data.getIdImpianto()){ %>
 				<td><a  href="" class="btn btn-success isDisabled">Confronta</a></td>			
@@ -100,12 +83,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				
 				<%} %>
 				<%} %>
+				<%
+		}
+	%>
 			</tr>
-			<%
-				}
-			%>
-		</tbody>
-	</table>
+    </table>
 
 	<%
 		}
