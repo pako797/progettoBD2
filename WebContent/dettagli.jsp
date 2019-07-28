@@ -36,9 +36,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
  <%@include file="header.jsp" %>
 	<div class="container">
 		<div class="py-5 text-center">
-			<img class="d-block mx-auto mb-4"
-				src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72"
-				height="72">
 			<h2><%= stazione.getGestore() %></h2>
 		</div>
 
