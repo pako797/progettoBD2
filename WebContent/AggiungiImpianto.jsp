@@ -1,7 +1,14 @@
+<%
+MongoClient mongo = (MongoClient) request.getServletContext()
+.getAttribute("MONGO_CLIENT");
+MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
+List<Comune> comuni = comuneDAO.readAllComuni();
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@page import="java.util.*,Control.*,Beans.*, database.*,com.mongodb.*"%>
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport"
@@ -10,6 +17,30 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <title>Aggiungi impianto</title>
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
+
+
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">  
+    $(document).ready(function() {  
+      $("form#iscrizione").submit(function(){  
+        var nome = $("#nome").val();  
+        var cognome = $("#cognome").val();  
+        $.ajax({  
+          type: "POST",
+          url: "/script/utenti.php",  
+          data: "nome=" + nome + "&cognome=" + cognome,
+          dataType: "html",
+          success: function(risposta) {  
+            $("div#risposta").html(risposta);  
+          },
+          error: function(){
+            alert("Chiamata fallita!!!");
+          } 
+        }); 
+        return false;  
+      });
+    });
+    </script>  
 </head>
 
 <body class="add">
@@ -52,17 +83,17 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<form  method="GET" action="AddImpiantoServlet" class="col-12 text-center">
 				<div class="input-group mb-3">
 						<input type="text" class="form-control" placeholder="Id" id="id" name="id"
-							aria-label="Id" aria-describedby="basic-addon1">
+							aria-label="Id" aria-describedby="basic-addon1" required>
 					</div>
 					<div class="input-group mb-3">
 						<input type="text" class="form-control" placeholder="Gestore" id="gestore" name="gestore"
-							aria-label="Username" aria-describedby="basic-addon1">
+							aria-label="Username" aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="input-group mb-3">
 
 						<input type="text" class="form-control" placeholder="Bandiera" id="bandiera" name="bandiera"
-							aria-label="Username" aria-describedby="basic-addon1">
+							aria-label="Username" aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="form-group">
@@ -79,20 +110,20 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 						<input type="text" class="form-control"
 							placeholder="Nome impianto" aria-label="Username" id="nome" name="nome"
-							aria-describedby="basic-addon1">
+							aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="input-group mb-3">
 
 						<input type="text" class="form-control" placeholder="Indirizzo"
-							aria-label="Username" id="indirizzo" name="indirizzo" aria-describedby="basic-addon1">
+							aria-label="Username" id="indirizzo" name="indirizzo" aria-describedby="basic-addon1" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleFormControlSelect1">Provincia</label> <select
 							class="form-control" id="provincia" name="provincia" id="exampleFormControlSelect1">
-							<option>Napoli</option>
-							<option>2</option>
+							<option>NA</option>
+							<option>AG</option>
 							<option>3</option>
 							<option>4</option>
 							<option>5</option>
@@ -102,13 +133,12 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 
 					<div class="form-group">
-						<label for="exampleFormControlSelect1">Comune</label> <select
-							class="form-control" id="comune" name="comune" id="exampleFormControlSelect1">
-							<option>Napoli</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
+						<label for="exampleFormControlSelect1">Comune</label>
+						 <select class="form-control" id="comune" name="comune" id="exampleFormControlSelect1">
+						 <% for(Comune temp : comuni){ %>
+							<option><%=temp.getComune() %></option>
+							<%} %>
+							
 						</select>
 					</div>
 

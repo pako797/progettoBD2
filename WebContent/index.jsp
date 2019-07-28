@@ -1,8 +1,8 @@
+
 <%
-MongoClient mongo = (MongoClient) request.getServletContext()
-.getAttribute("MONGO_CLIENT");
-MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
-List<Comune> comuni = comuneDAO.readAllComuni();
+	MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
+	MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
+	List<Comune> comuni = comuneDAO.readAllComuni();
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -37,12 +37,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
-					
-					<li class="nav-item"><a class="nav-link"
-					href="./Login.jsp"">Login</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="./Login.jsp"">Login</a></li>
 
 			</ul>
-			
+
 		</div>
 	</nav>
 	<br>
@@ -56,42 +55,39 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 mx-auto">
+			<div class="col-md-6 mx-auto">
 				<form method="GET" action="RicercaStazioneComune">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Ricerca impianto vicino a
-							te:</label> 
-							<div class="form-group">
-						<label for="exampleFormControlSelect1">Comune</label> <select
-							class="form-control" id="exampleFormControlSelect1" name="comune">
-							<% for(Comune temp : comuni){ %>
-							<option><%=temp.getComune() %></option>
-							<%} %>
-						</select>
-					</div>
-
-					</div>
-					
-
-					<div class="row">
-						<div class="col-md-4 mx-auto">
-							<button type="submit" class="btn btn-primary">Ricerca</button>
+							te:</label>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">Comune</label> <select
+								class="form-control" id="exampleFormControlSelect1"
+								name="comune">
+								<%
+									for (Comune temp : comuni) {
+								%>
+								<option><%=temp.getComune()%></option>
+								<%
+									}
+								%>
+							</select>
 						</div>
+
 					</div>
+
+					<div class="col-md-4 mx-auto">
+						<button type="submit" class="btn btn-primary">Ricerca</button>
+					</div>
+
+
+
 
 				</form>
 			</div>
 		</div>
 	</div>
 
-
-	<div id="demoMap" style="width: 100%; height: 100%; position:fixed"></div>
-	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-	<script>
-		map = new OpenLayers.Map("demoMap");
-		map.addLayer(new OpenLayers.Layer.OSM());
-		map.zoomToMaxExtent();
-	</script>
 </body>
 
 

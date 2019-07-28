@@ -29,6 +29,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <title>Home page</title>
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 </head>
 <body class ="dettagli">
 
@@ -89,6 +91,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 					</li>
 
 					<%} %>
+					
+					<a class="btn btn-primary btn-lg btn-block" href = "./ConfrontaPrezzi">Confronta prezzi</a>
 
 
 				</ul>
@@ -175,6 +179,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 
 </body>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

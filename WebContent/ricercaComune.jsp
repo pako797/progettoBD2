@@ -1,6 +1,13 @@
 
 <%
 	List<Stazione> stazioni = (ArrayList<Stazione>) session.getAttribute("stazioni");
+	Stazione stazione = (Stazione) session.getAttribute("stazione");
+	Boolean confronto = (Boolean) session.getAttribute("confronto");
+	
+	if(stazioni == null){
+		response.sendRedirect("./index.jsp");
+		return;
+	}
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -62,8 +69,13 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<th scope="col">Tipo impianto</th>
 				<th scope="col">Comune</th>
 				<th scope="col">Indirizzo</th>
-				<th scope="col">Dettagli</th>
-
+				<%if((confronto == null) || (confronto.booleanValue() == false)){ %>
+<th scope="col">Dettagli</th>				
+				<%} %>
+				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
+				<th scope="col">Confronto</th>
+				
+				<%} %>
 			</tr>
 		</thead>
 		<tbody>
@@ -71,15 +83,23 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				for (Stazione data : stazioni) {
 			%>
 			<tr>
-				<th scope="row"><%=data.getIdImpianto() + ""%></th>
+				<td><%=data.getIdImpianto() + ""%></td>
 				<td><%=data.getGestore()%></td>
 				<td><%=data.getBandiera()%></td>
 				<td><%=data.getTipoImpianto()%></td>
-				<td><%=data.getComune()%><td>
-				<td><%=data.getIndirizzo()%>
-				<td>
-				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a>
-				<td>
+				<td><%=data.getComune()%></td>
+				<td><%=data.getIndirizzo()%></td>
+				<%if((confronto == null) || (confronto.booleanValue() == false)){ %>
+				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a></td>
+			<%} %>
+				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
+				<%if(stazione != null && stazione.getIdImpianto() == data.getIdImpianto()){ %>
+				<td><a  href="" class="btn btn-success isDisabled">Confronta</a></td>			
+				<%}else{ %>
+				<td><a href="./ConfrontaPrezzi?id=<%=data.getIdImpianto() %>" class="btn btn-success">Confronta</a></td>			
+				
+				<%} %>
+				<%} %>
 			</tr>
 			<%
 				}

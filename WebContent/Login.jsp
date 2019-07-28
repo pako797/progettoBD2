@@ -63,7 +63,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 							<span class="input-group-text"><i class="material-icons">person</i></span>
 						</div>
 						<input type="text" name="user" id="user" class="form-control"
-							placeholder="Username">
+							placeholder="Username" required>
 					</div>
 
 					<div class="input-group form-group">
@@ -71,7 +71,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 							<span class="input-group-text"><i class="material-icons">verified_user</i></span>
 						</div>
 						<input type="password" name="password" id="password" class="form-control"
-							placeholder="Password">
+							placeholder="Password" required>
 					</div>
 
 					<div class="form-group">
