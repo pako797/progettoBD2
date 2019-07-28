@@ -8,6 +8,10 @@
 	List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
 	Stazione stazioneConfronto = (Stazione) session.getAttribute("stazioneConfronto");
 	List<Prezzo> prezziConfronto = (ArrayList<Prezzo>) session.getAttribute("prezziConfronto");
+	Boolean confronto = (Boolean) session.getAttribute("confronto");
+	if(confronto!=null && confronto.booleanValue()==true){
+		session.removeAttribute("confronto");
+	}
 
 	if(stazione != null && prezziStazione != null && stazioneConfronto != null && prezziConfronto != null){
 		session.removeAttribute("stazione");

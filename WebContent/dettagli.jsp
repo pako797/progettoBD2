@@ -63,8 +63,10 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 					<%} %>
 					
+					
+					<%if(admin==null){ %>
 					<a class="btn btn-primary btn-lg btn-block" href = "./ConfrontaPrezzi">Confronta prezzi</a>
-
+					<%} %>
 
 				</ul>
 
