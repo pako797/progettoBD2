@@ -65,6 +65,11 @@ public class MongoDBStazioneDAO {
 			data = StazioneConverter.toStazione(doc);
 			return data;
 		}
+		
+		public void deleteStazione(Stazione s) {
+			DBObject query = BasicDBObjectBuilder.start().append("_id", new ObjectId(s.getId())).get();
+			this.col.remove(query);
+		}
 
 
 	}

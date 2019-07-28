@@ -28,8 +28,10 @@
 				<li class="nav-item"><a class="nav-link" href="#">Ricerca <span
 						class="sr-only">(current)</span>
 				</a></li>
+				<%if(admin!=null){ %>
 				<li class="nav-item"><a class="nav-link"
 					href="./AggiungiImpianto.jsp"">Aggiungi impianto</a></li>
+						<%} %>
 			    <%if(admin==null){ %>
 				<li class="nav-item"><a class="nav-link" href="./Login.jsp">Login</a></li>
 				<%} else{ %>

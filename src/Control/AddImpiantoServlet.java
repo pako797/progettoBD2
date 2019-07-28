@@ -38,7 +38,7 @@ public class AddImpiantoServlet extends HttpServlet {
 		String tipo = request.getParameter("tipo");
 		String nome = request.getParameter("nome");
 		String indirizzo = request.getParameter("indirizzo");
-		String comune = request.getParameter("comune");
+		String comune = request.getParameter("comune").toUpperCase();
 		String provincia = request.getParameter("provincia");
 		String latitudine = "3.732.621.304.542.850";
 		String longitudine = "13.591.846.078.634.200";

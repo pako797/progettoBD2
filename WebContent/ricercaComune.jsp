@@ -40,9 +40,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<table class="table table-striped custab">
     <thead>
-    <div style="margin-bottom: 10px;">
-    <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
-    </div>
       <tr>
 				<th scope="col">Id</th>
 				<th scope="col">Gestore</th>
@@ -73,7 +70,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a></td>
 				<%} %>
 				<%if(admin!=null){ %>
-				 <td class="text-center"><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class='btn btn-info btn-xs'><i class="material-icons"> remove_red_eye </i></a> <a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-danger btn-xs"><i class="material-icons"> delete </i></a></td>
+				 <td class="text-center"><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class='btn btn-info btn-xs'><i class="material-icons"> remove_red_eye </i></a> <a href="./DeleteImpiantoServlet?id=<%=data.getId() %>" class="btn btn-danger btn-xs"><i class="material-icons"> delete </i></a></td>
 				<%} %>
 				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
 				<%if(stazione != null && stazione.getIdImpianto() == data.getIdImpianto()){ %>
