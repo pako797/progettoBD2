@@ -3,6 +3,11 @@ MongoClient mongo = (MongoClient) request.getServletContext()
 .getAttribute("MONGO_CLIENT");
 MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
 List<Comune> comuni = comuneDAO.readAllComuni();
+Admin admin2= (Admin) session.getAttribute("admin");
+if(admin2==null){
+	response.sendRedirect("./index.jsp");
+	return;
+}
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
