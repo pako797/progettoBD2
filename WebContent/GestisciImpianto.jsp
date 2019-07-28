@@ -1,7 +1,12 @@
+<%
+Stazione stazione = (Stazione) request.getAttribute("stazione");
+
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@page import="java.util.*,Control.*,Beans.*, database.*,com.mongodb.*"%>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Gestisci impianto</title>
@@ -18,7 +23,7 @@
 			<div class="col-2"></div>
 		</div>
 		<div class="row" style="font-size: 24px; margin: 80px auto 0;">
-			<span style="margin: 0 0 0 auto;">Modifica il seguente impianto:</span><span style="margin: 0 auto 0 0;">$IDimpianto</span>
+			<span style="margin: 0 0 0 auto;">Modifica il seguente impianto:</span><span style="margin: 0 auto 0 0;">${stazione.getIdImpianto()}</span>
 		</div>
 		<div class="row text-center" style="margin: 20px auto 50px;">
 			<form action="TODO" class="col-5 pull-left" style="margin-top: 15px; border-right: 1px solid #000;">

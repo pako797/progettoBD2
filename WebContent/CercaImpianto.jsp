@@ -1,7 +1,12 @@
+<%
+MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
+MongoDBStazioneDAO stazioneDAO = new MongoDBStazioneDAO(mongo);
+%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<%@page import="java.util.*,Control.*,Beans.*, database.*,com.mongodb.*"%>
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport"
@@ -47,11 +52,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 mx-auto">
-				<form>
+				<form method="GET" action="RicercaStazioneId">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Inserire l'ID
 							dell'impianto da modificare/eliminare:</label> <input type="text"
-							class="form-control" id="exampleInputEmail1"
+							class="form-control" name="id"
 							aria-describedby="emailHelp" placeholder="Enter id">
 
 					</div>
