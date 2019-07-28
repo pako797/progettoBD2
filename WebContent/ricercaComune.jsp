@@ -44,7 +44,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		} else {
 	%>
 
-	<table id="example" class=" display table table-responsive">
+	<table id="example" class=" display table table-striped">
     <thead>
       <tr>
 				<th scope="col">Id</th>
