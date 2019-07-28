@@ -3,6 +3,19 @@
 	MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
 	MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
 	List<Comune> comuni = comuneDAO.readAllComuni();
+	
+	Stazione stazione = (Stazione) session.getAttribute("stazione");
+	List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
+	Stazione stazioneConfronto = (Stazione) session.getAttribute("stazioneConfronto");
+	List<Prezzo> prezziConfronto = (ArrayList<Prezzo>) session.getAttribute("prezziConfronto");
+
+	if(stazione != null && prezziStazione != null && stazioneConfronto != null && prezziConfronto != null){
+		session.removeAttribute("stazione");
+		session.removeAttribute("prezzi");
+		session.removeAttribute("stazioneConfronto");
+		session.removeAttribute("prezziConfronto");
+
+	}
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
