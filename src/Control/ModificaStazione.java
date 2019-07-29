@@ -48,10 +48,9 @@ public class ModificaStazione extends HttpServlet {
 		
 		
 		Stazione s = stazioneDAO.ricercaStazioneId(id);
-		List<Prezzo> prezziStazione = prezzoDAO.ricercaPrezziStazione(id);
+		s.setPrezziCarburante(prezzoDAO.ricercaPrezziStazione(id));
 	
 		request.getSession().setAttribute("stazione", s);
-		request.getSession().setAttribute("prezzi", prezziStazione);
 
 		response.sendRedirect(request.getContextPath() + "/modificaImpianto.jsp");
 	}

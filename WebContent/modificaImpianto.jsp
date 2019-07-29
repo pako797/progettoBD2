@@ -3,8 +3,12 @@
 	MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
 	MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
 	List<Comune> comuni = comuneDAO.readAllComuni();
+	
+	MongoDBProvinceDAO provinceDAO = new MongoDBProvinceDAO(mongo);
+	List<Province> province = provinceDAO.readAllProvince();
+	
+	
 	Stazione stazione = (Stazione) session.getAttribute("stazione");
-	List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
 	Admin admin2 = (Admin) session.getAttribute("admin");
 	if (admin2 == null) {
 		response.sendRedirect("./index.jsp");
@@ -138,11 +142,21 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 						<label class="col-sm col-form-label" for="exampleFormControlSelect1">Provincia</label> <select
 							class=" col-sm form-control" id="provincia" name="provincia"
 							id="exampleFormControlSelect1">
-							<option>NA</option>
-							<option>AG</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
+							<%
+								for (Province temp : province) {
+									
+							%>
+							
+							<%if(temp.getSigla().equalsIgnoreCase(stazione.getProvincia())){ %>
+							<option selected><%=temp.getSigla()%></option>
+							
+							<%}else{ %>
+														<option><%=temp.getSigla()%></option>
+							
+							<%} %>
+							<%
+								}
+							%>
 						</select>
 					</div>
 
@@ -173,12 +187,12 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 			<div class="col-sm"><label for="SelfCarburante">Self-Service</label></div>
 				</div>
 					</div>
-			<%for(int i=0; i<prezziStazione.size(); i++){ %>
+			<%for(int i=0; i<stazione.getPrezziCarburante().size(); i++){ %>
 					<div class="container">
 						<div class="row">
-							<div class="col-sm"><span class="input-group-text" id="basic-addon2"><%= prezziStazione.get(i).getDescCarburante()%></span></div>
-							<div class="col-sm"><input type="text" class="form-control" value="<%= prezziStazione.get(i).getPrezzo()%>" aria-label="Username" id="nome" name="nome" aria-describedby="basic-addon1" required></div>
-							<div class="col-sm"><input type="checkbox" <%if(prezziStazione.get(i).getIsSelf()==1){ %>checked="checked"<%} %> aria-label="Checkbox for following text input"></div>
+							<div class="col-sm"><span class="input-group-text" id="basic-addon2"><%= stazione.getPrezziCarburante().get(i).getDescCarburante()%></span></div>
+							<div class="col-sm"><input type="text" class="form-control" value="<%= stazione.getPrezziCarburante().get(i).getPrezzo()%>" aria-label="Username" id="nome" name="nome" aria-describedby="basic-addon1" required></div>
+							<div class="col-sm"><input type="checkbox" <%if(stazione.getPrezziCarburante().get(i).getIsSelf()==1){ %>checked="checked"<%} %> aria-label="Checkbox for following text input"></div>
 						</div>
 					</div>
 					<%} %>
