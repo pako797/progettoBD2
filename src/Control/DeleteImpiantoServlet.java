@@ -34,16 +34,15 @@ public class DeleteImpiantoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
+		String comune = request.getParameter("comune");
 		MongoClient mongo = (MongoClient) request.getServletContext()
 				.getAttribute("MONGO_CLIENT");
 		MongoDBStazioneDAO stazioneDAO = new MongoDBStazioneDAO(mongo);
 		Stazione s = new Stazione();
 		s.setId(id);
 		stazioneDAO.deleteStazione(s);
-		System.out.println("Person deleted successfully with id=" + id);
-		request.setAttribute("success", "Person deleted successfully");
-		List<Stazione> stazioni = stazioneDAO.readAllStazioni();
-		request.setAttribute("stazioni", stazioni);
+		List<Stazione> stazioni = stazioneDAO.ricercaStazioneComune(comune);
+		request.getSession().setAttribute("stazioni", stazioni);
 		response.sendRedirect(request.getContextPath() + "/ricercaComune.jsp");
 	}
 

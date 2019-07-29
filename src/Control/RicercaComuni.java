@@ -18,14 +18,14 @@ import database.MongoDBComuneDAO;
 /**
  * Servlet implementation class RicercaAvanzata
  */
-@WebServlet("/RicercaAvanzata")
-public class RicercaAvanzata extends HttpServlet {
+@WebServlet("/RicercaComuni")
+public class RicercaComuni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RicercaAvanzata() {
+    public RicercaComuni() {
         super();
         // TODO Auto-generated constructor stub
     }

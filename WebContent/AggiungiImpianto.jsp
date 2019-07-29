@@ -1,8 +1,8 @@
 <%
-MongoClient mongo = (MongoClient) request.getServletContext()
-.getAttribute("MONGO_CLIENT");
-MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
-List<Comune> comuni = comuneDAO.readAllComuni();
+MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
+MongoDBProvinceDAO provinceDAO = new MongoDBProvinceDAO(mongo);
+List<Province> province = provinceDAO.readAllProvince();
+
 Admin admin2= (Admin) session.getAttribute("admin");
 if(admin2==null){
 	response.sendRedirect("./index.jsp");
@@ -24,28 +24,31 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" href="./css/style.css">
 
 
- <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript">  
-    $(document).ready(function() {  
-      $("form#iscrizione").submit(function(){  
-        var nome = $("#nome").val();  
-        var cognome = $("#cognome").val();  
-        $.ajax({  
-          type: "POST",
-          url: "/script/utenti.php",  
-          data: "nome=" + nome + "&cognome=" + cognome,
-          dataType: "html",
-          success: function(risposta) {  
-            $("div#risposta").html(risposta);  
-          },
-          error: function(){
-            alert("Chiamata fallita!!!");
-          } 
-        }); 
-        return false;  
-      });
-    });
-    </script>  
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function() {
+		$("#provincia").on("change", function(event) {
+			$.ajax({
+				type : "POST",
+				url : "RicercaComuni",
+				data : {
+					provincia : $("#provincia").val()
+				},
+				success : function(html) {
+					$("#listaComuni").html(html);
+				},
+				error : function() {
+					alert("Chiamata fallita!!!");
+				}
+			});
+			return false;
+		}).trigger('change');
+	});
+</script>
 </head>
 
 <body class="add">
@@ -102,28 +105,35 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 							aria-label="Username" id="indirizzo" name="indirizzo" aria-describedby="basic-addon1" required>
 					</div>
 
-					<div class="form-group">
-						<label for="exampleFormControlSelect1">Provincia</label> <select
-							class="form-control" id="provincia" name="provincia" id="exampleFormControlSelect1">
-							<option>NA</option>
-							<option>AG</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
+					<div class="form-group row">
+					<label class="col-sm col-form-label"
+						for="exampleFormControlSelect1">Provincia</label> <select
+						class=" col-sm form-control" id="provincia" name="provincia"
+						id="provincia">
+						<%
+							for (Province temp : province) {
+						%>
+
+
+						<option><%=temp.getSigla()%></option>
+
+
+						<%
+							}
+						%>
+					</select>
+				</div>
 
 
 
-					<div class="form-group">
-						<label for="exampleFormControlSelect1">Comune</label>
-						 <select class="form-control" id="comune" name="comune" id="exampleFormControlSelect1">
-						 <% for(Comune temp : comuni){ %>
-							<option><%=temp.getComune() %></option>
-							<%} %>
-							
-						</select>
-					</div>
+				<div class="form-group row">
+					<label class="col-sm col-form-label"
+						for="exampleFormControlSelect1">Comune</label> <select
+						class="form-control col-sm" name="comune" id="listaComuni">
+
+					</select>
+				</div>
+					
 
 
 
@@ -137,9 +147,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

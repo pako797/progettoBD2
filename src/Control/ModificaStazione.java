@@ -79,8 +79,8 @@ public class ModificaStazione extends HttpServlet {
 			s.setProvincia(provincia);
 			stazioneDAO.updateStazione(s);
 			request.setAttribute("stazione", s);
-			List<Stazione> stazioni = stazioneDAO.readAllStazioni();
-			request.setAttribute("stazioni", stazioni);
+			List<Stazione> stazioni = stazioneDAO.ricercaStazioneComune(comune);
+			request.getSession().setAttribute("stazioni", stazioni);
 			response.sendRedirect(request.getContextPath() + "/ricercaComune.jsp");
 		}
 	}

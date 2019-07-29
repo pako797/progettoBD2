@@ -1,17 +1,17 @@
 
 <%
 	MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
-	MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
-	List<Comune> comuni = comuneDAO.readAllComuni();
-	
+	MongoDBProvinceDAO provinceDAO = new MongoDBProvinceDAO(mongo);
+	List<Province> province = provinceDAO.readAllProvince();
+
 	Stazione stazione = (Stazione) session.getAttribute("stazione");
 	Stazione stazioneConfronto = (Stazione) session.getAttribute("stazioneConfronto");
 	Boolean confronto = (Boolean) session.getAttribute("confronto");
-	if(confronto!=null && confronto.booleanValue()==true){
+	if (confronto != null && confronto.booleanValue() == true) {
 		session.removeAttribute("confronto");
 	}
 
-	if(stazione != null && stazioneConfronto != null){
+	if (stazione != null && stazioneConfronto != null) {
 		session.removeAttribute("stazione");
 		session.removeAttribute("stazioneConfronto");
 
@@ -28,10 +28,35 @@
 	content="width=device-width, user-scalable=no,
 initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <title>Home page</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function() {
+		$("#provincia").on("change", function(event) {
+			$.ajax({
+				type : "POST",
+				url : "RicercaComuni",
+				data : {
+					provincia : $("#provincia").val()
+				},
+				success : function(html) {
+					$("#listaComuni").html(html);
+				},
+				error : function() {
+					alert("Chiamata fallita!!!");
+				}
+			});
+			return false;
+		}).trigger('change');
+	});
+</script>
 </head>
 
 <body class="home">
- <%@include file="header.jsp" %>
+	<%@include file="header.jsp"%>
 	<br>
 	<br>
 	<br>
@@ -43,26 +68,36 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 mx-auto">
+<div class="col-md-4 mx-auto">
 				<form method="GET" action="RicercaStazioneComune">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Ricerca impianto vicino a
-							te:</label>
-						<div class="form-group">
-							<label for="exampleFormControlSelect1">Comune</label> <select
-								class="form-control" id="exampleFormControlSelect1"
-								name="comune">
-								<%
-									for (Comune temp : comuni) {
-								%>
-								<option><%=temp.getComune()%></option>
-								<%
-									}
-								%>
-							</select>
-						</div>
+					<div class="form-group row">
+					<label class="col-sm col-form-label"
+						for="exampleFormControlSelect1">Provincia</label> <select
+						class=" col-sm form-control" id="provincia" name="provincia"
+						id="provincia">
+						<%
+							for (Province temp : province) {
+						%>
 
-					</div>
+
+						<option><%=temp.getSigla()%></option>
+
+
+						<%
+							}
+						%>
+					</select>
+				</div>
+
+
+
+				<div class="form-group row">
+					<label class="col-sm col-form-label"
+						for="exampleFormControlSelect1">Comune</label> <select
+						class="form-control col-sm" name="comune" id="listaComuni">
+
+					</select>
+				</div>
 
 					<div class="col-md-4 mx-auto">
 						<button type="submit" class="btn btn-primary">Ricerca</button>
@@ -80,9 +115,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
+
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

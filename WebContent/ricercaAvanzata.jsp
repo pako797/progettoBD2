@@ -1,9 +1,6 @@
 
 <%
 	MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
-	MongoDBComuneDAO comuneDAO = new MongoDBComuneDAO(mongo);
-	List<Comune> comuni = comuneDAO.readAllComuni();
-
 	MongoDBProvinceDAO provinceDAO = new MongoDBProvinceDAO(mongo);
 	List<Province> province = provinceDAO.readAllProvince();
 
@@ -33,7 +30,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		$("#provincia").on("change", function(event) {
 			$.ajax({
 				type : "POST",
-				url : "RicercaAvanzata",
+				url : "RicercaComuni",
 				data : {
 					provincia : $("#provincia").val()
 				},
