@@ -14,6 +14,7 @@
 		response.sendRedirect("./index.jsp");
 		return;
 	}
+
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -23,35 +24,35 @@
 <%@page import="java.util.*,Control.*,Beans.*, database.*,com.mongodb.*"%>
 <head>
 <meta charset="ISO-8859-1">
-<meta name="viewport"
-	content="width=device-width, user-scalable=no,
-initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <title>Aggiungi impianto</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/style.css">
 
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
+<script>
 	$(document).ready(function() {
-		$("form#iscrizione").submit(function() {
-			var nome = $("#nome").val();
-			var cognome = $("#cognome").val();
+		$( "#provincia" ).on( "change", function( event ) {
 			$.ajax({
 				type : "POST",
-				url : "/script/utenti.php",
-				data : "nome=" + nome + "&cognome=" + cognome,
-				dataType : "html",
-				success : function(risposta) {
-					$("div#risposta").html(risposta);
+				url : "ComuneServlet",
+				data : {
+					provincia : $("#provincia").val()
+				},
+				success : function(html) {
+					 $("#listaComuni").html(html);
 				},
 				error : function() {
 					alert("Chiamata fallita!!!");
 				}
 			});
 			return false;
+		}).trigger('change');
 		});
-	});
 </script>
 </head>
 
@@ -141,7 +142,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 					<div class="form-group row">
 						<label class="col-sm col-form-label" for="exampleFormControlSelect1">Provincia</label> <select
 							class=" col-sm form-control" id="provincia" name="provincia"
-							id="exampleFormControlSelect1">
+							id="provincia">
 							<%
 								for (Province temp : province) {
 									
@@ -164,15 +165,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 					<div class="form-group row">
 						<label class="col-sm col-form-label" for="exampleFormControlSelect1">Comune</label> <select
-							class="form-control col-sm" id="comune" name="comune"
-							id="exampleFormControlSelect1">
-							<%
-								for (Comune temp : comuni) {
-							%>
-							<option><%=temp.getComune()%></option>
-							<%
-								}
-							%>
+							class="form-control col-sm" name="comune"
+							id="listaComuni">
 
 						</select>
 					</div>
@@ -204,9 +198,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
