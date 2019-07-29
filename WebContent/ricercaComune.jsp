@@ -1,5 +1,7 @@
 
-<%
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	<%
 	List<Stazione> stazioni = (ArrayList<Stazione>) session.getAttribute("stazioni");
 	Stazione stazione = (Stazione) session.getAttribute("stazione");
 	Boolean confronto = (Boolean) session.getAttribute("confronto");
@@ -10,8 +12,6 @@
 	}
 	
 %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <%@page import="java.util.*,Control.*,Beans.*"%>
@@ -78,7 +78,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a></td>
 				<%} %>
 				<%if(admin!=null){ %>
-				 <td class="text-center"><a href="./ModificaStazione?id=<%=data.getIdImpianto() %>" class='btn btn-outline btn-xs'><i class="material-icons"> settings </i></a> <a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class='btn btn-outline btn-xs'><i class="material-icons"> remove_red_eye </i></a> <a href="./DeleteImpiantoServlet?id=<%=data.getId() %>" class="btn btn-outline btn-xs"><i class="material-icons"> delete </i></a></td>
+				 <td class="text-center"><a href="./ModificaStazione?id=<%=data.getIdImpianto() %>&action=see" class='btn btn-outline btn-xs'><i class="material-icons"> settings </i></a> <a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class='btn btn-outline btn-xs'><i class="material-icons"> remove_red_eye </i></a> <a href="./DeleteImpiantoServlet?id=<%=data.getId() %>" class="btn btn-outline btn-xs"><i class="material-icons"> delete </i></a></td>
 				<%} %>
 				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
 				<%if(stazione != null && stazione.getIdImpianto() == data.getIdImpianto()){ %>

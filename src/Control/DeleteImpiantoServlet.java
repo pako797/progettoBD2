@@ -44,7 +44,7 @@ public class DeleteImpiantoServlet extends HttpServlet {
 		request.setAttribute("success", "Person deleted successfully");
 		List<Stazione> stazioni = stazioneDAO.readAllStazioni();
 		request.setAttribute("stazioni", stazioni);
-		response.sendRedirect(request.getContextPath() + "/AggiungiImpianto.jsp");
+		response.sendRedirect(request.getContextPath() + "/ricercaComune.jsp");
 	}
 
 	/**

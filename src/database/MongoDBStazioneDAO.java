@@ -70,6 +70,11 @@ public class MongoDBStazioneDAO {
 			DBObject query = BasicDBObjectBuilder.start().append("_id", new ObjectId(s.getId())).get();
 			this.col.remove(query);
 		}
+		
+		public void updateStazione(Stazione s) {
+			DBObject query = BasicDBObjectBuilder.start().append("_id", new ObjectId(s.getId())).get();
+			this.col.update(query, StazioneConverter.toDbObject(s));
+		}
 
 
 	}

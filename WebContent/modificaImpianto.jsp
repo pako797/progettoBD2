@@ -70,8 +70,7 @@
 
 
 		<div class="row">
-				<form method="GET" action="AddImpiantoServlet"
-					class="col-12 text-center">
+				<form method="GET" action="ModificaStazione" class="col-12 text-center">
 					<div class="col-md-4 mx-auto">
 					<div class="form-group row">
 						<label class="col-sm col-form-label" for="exampleFormControlSelect1">Id</label>
@@ -190,9 +189,9 @@
 						</div>
 					</div>
 					<%} %>
+					<input type="hidden" name="action" id="action" value="modifica">
 					<button type="submit" class="btn btn-primary">modifica</button>
 					<button class="btn btn-primary" onclick="history.back()">annulla</button>
-
 				</form>
 		</div>
 
