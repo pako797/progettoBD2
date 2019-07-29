@@ -1,15 +1,8 @@
 
 <%
 Stazione stazione = (Stazione) session.getAttribute("stazione");
-List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
 
 if(stazione == null){
-	response.sendRedirect("./dettagli.jsp");
-	return;
-
-}
-
-if(prezziStazione == null){
 	response.sendRedirect("./dettagli.jsp");
 	return;
 
@@ -43,11 +36,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 			<div class="col-md-4 order-md-2 mb-4">
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Prezzi</span> <span
-						class="badge badge-secondary badge-pill"><%= prezziStazione.size() %></span>
+						class="badge badge-secondary badge-pill"><%= stazione.getPrezziCarburante().size() %></span>
 				</h4>
 				<ul class="list-group mb-3">
 
-					<%for(Prezzo temp : prezziStazione){ %>
+					<%for(Prezzo temp : stazione.getPrezziCarburante()){ %>
 					<li
 						class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>

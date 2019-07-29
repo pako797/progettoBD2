@@ -5,19 +5,15 @@
 	List<Comune> comuni = comuneDAO.readAllComuni();
 	
 	Stazione stazione = (Stazione) session.getAttribute("stazione");
-	List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
 	Stazione stazioneConfronto = (Stazione) session.getAttribute("stazioneConfronto");
-	List<Prezzo> prezziConfronto = (ArrayList<Prezzo>) session.getAttribute("prezziConfronto");
 	Boolean confronto = (Boolean) session.getAttribute("confronto");
 	if(confronto!=null && confronto.booleanValue()==true){
 		session.removeAttribute("confronto");
 	}
 
-	if(stazione != null && prezziStazione != null && stazioneConfronto != null && prezziConfronto != null){
+	if(stazione != null && stazioneConfronto != null){
 		session.removeAttribute("stazione");
-		session.removeAttribute("prezzi");
 		session.removeAttribute("stazioneConfronto");
-		session.removeAttribute("prezziConfronto");
 
 	}
 %>

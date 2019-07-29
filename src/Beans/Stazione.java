@@ -1,5 +1,8 @@
 package Beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Stazione {
 	
 	private String _id;
@@ -13,6 +16,7 @@ public class Stazione {
 	private String provincia;
 	private String latitudine;
 	private String longitudine;
+	private List<Prezzo> prezziCarburante;
 	
 	
 	public Stazione() {
@@ -128,6 +132,27 @@ public class Stazione {
 	public void setLongitudine(String longitudine) {
 		this.longitudine = longitudine;
 	}
+
+
+	public String get_id() {
+		return _id;
+	}
+
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+
+	public List<Prezzo> getPrezziCarburante() {
+		return prezziCarburante;
+	}
+
+
+	public void setPrezziCarburante(List<Prezzo> list) {
+		this.prezziCarburante = list;
+	}
+	
 	
 	
 	

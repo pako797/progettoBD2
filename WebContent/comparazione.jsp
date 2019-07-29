@@ -1,14 +1,12 @@
 <%
 Stazione stazione = (Stazione) session.getAttribute("stazione");
-List<Prezzo> prezziStazione = (ArrayList<Prezzo>) session.getAttribute("prezzi");
 Stazione stazioneConfronto = (Stazione) session.getAttribute("stazioneConfronto");
-List<Prezzo> prezziConfronto = (ArrayList<Prezzo>) session.getAttribute("prezziConfronto");
 Boolean confronto = (Boolean) session.getAttribute("confronto");
 if(confronto != null && confronto.booleanValue() == true) {
 	session.removeAttribute("confronto");
 }
 
-if(stazione == null || prezziStazione == null || stazioneConfronto == null || prezziConfronto == null){
+if(stazione == null || stazioneConfronto == null){
 	response.sendRedirect("./ricercaComune.jsp");
 	return;
 }
@@ -69,7 +67,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				 <h4 class="card-title pricing-card-title"><%= stazione.getGestore() %> <small class="text-muted">/ <%= stazione.getIndirizzo() %></small></h4>
 				<ul class="list-group mb-3">
 
-					<%for(Prezzo temp : prezziStazione){ %>
+					<%for(Prezzo temp : stazione.getPrezziCarburante()){ %>
 					<li
 						class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>
@@ -103,7 +101,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				
 				<ul class="list-group mb-3">
 
-					<%for(Prezzo temp : prezziConfronto){ %>
+					<%for(Prezzo temp : stazioneConfronto.getPrezziCarburante()){ %>
 					<li
 						class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>

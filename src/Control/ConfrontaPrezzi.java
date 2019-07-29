@@ -52,10 +52,9 @@ public class ConfrontaPrezzi extends HttpServlet {
 			
 			
 			Stazione s = stazioneDAO.ricercaStazioneId(id);
-			List<Prezzo> prezziStazione = prezzoDAO.ricercaPrezziStazione(id);
+			s.setPrezziCarburante(prezzoDAO.ricercaPrezziStazione(id));
 		
 			request.getSession().setAttribute("stazioneConfronto", s);
-			request.getSession().setAttribute("prezziConfronto", prezziStazione);
 			
 			response.sendRedirect(request.getContextPath() + "/comparazione.jsp");
 						
