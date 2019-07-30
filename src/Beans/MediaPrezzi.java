@@ -10,8 +10,12 @@ public class MediaPrezzi {
 	private double accisa;
 	private double iva;
 	private double netto;
-	private String variazione;
+	private double variazione;
 	
+	public MediaPrezzi() {
+		super();
+	}
+
 	public String get_id() {
 		return _id;
 	}
@@ -26,6 +30,14 @@ public class MediaPrezzi {
 
 	public void setData_rilevazione(String data_rilevazione) {
 		this.data_rilevazione = data_rilevazione;
+	}
+
+	public String getProdotto_nome() {
+		return prodotto_nome;
+	}
+
+	public void setProdotto_nome(String prodotto_nome) {
+		this.prodotto_nome = prodotto_nome;
 	}
 
 	public int getProdotto_id() {
@@ -68,26 +80,16 @@ public class MediaPrezzi {
 		this.netto = netto;
 	}
 
-	public String getVariazione() {
+	public Double getVariazione() {
 		return variazione;
 	}
 
-	public void setVariazione(String variazione) {
+	public void setVariazione(Double variazione) {
 		this.variazione = variazione;
 	}
+	
+	
+	
 
-
-	public MediaPrezzi() {
-		// TODO Auto-generated constructor stub
-		super();
-	}
-
-	public String getProdotto_nome() {
-		return prodotto_nome;
-	}
-
-	public void setProdotto_nome(String prodotto_nome) {
-		this.prodotto_nome = prodotto_nome;
-	}
 
 }

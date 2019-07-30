@@ -25,7 +25,9 @@ public class MongoDBMediaPrezziDAO {
 	
 	public List<MediaPrezzi> readAllMediaPrezzi() {
 		List<MediaPrezzi> mediaPrezzi = new ArrayList<MediaPrezzi>();
-		DBCursor cursor = col.find();
+		DBObject query = BasicDBObjectBuilder.start()
+				.append("DATA_RILEVAZIONE", "29/07/2019").get();
+		DBCursor cursor = col.find(query);
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();
 			MediaPrezzi c = MediaPrezziConverter.toMediaPrezzi(doc);

@@ -39,7 +39,7 @@ public class MediaPrezziServlet extends HttpServlet {
 		List<MediaPrezzi> m=  mediaPrezziDAO.readAllMediaPrezzi();
 	
 		request.getSession().setAttribute("mediaLuglio", m);
-		response.sendRedirect(request.getContextPath() + "/index.jsp");
+		response.sendRedirect(request.getContextPath() + "/mediasettimanale.jsp");
 
 	}
 

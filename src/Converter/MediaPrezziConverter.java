@@ -30,14 +30,15 @@ public class MediaPrezziConverter {
 	
 	public static MediaPrezzi toMediaPrezzi(DBObject doc) {
 		MediaPrezzi c = new MediaPrezzi();
+		System.out.println(doc.get("PRODOTTO_NOME"));
 		c.setData_rilevazione((String) doc.get("DATA_RILEVAZIONE"));
 		c.setProdotto_id((Integer) doc.get("PRODOTTO_ID"));
 		c.setProdotto_nome((String) doc.get("PRODOTTO_NOME"));
-		c.setPrezzo((Double) doc.get("PREZZO"));
-		c.setAccisa((Double) doc.get("ACCISA"));
-		c.setIva((Double) doc.get("IVA"));
-		c.setNetto((Double) doc.get("NETTO"));
-		c.setVariazione((String) doc.get("VARIAZIONE"));
+		c.setPrezzo((double) doc.get("PREZZO"));
+		c.setAccisa((double) doc.get("ACCISA"));
+		c.setIva((double) doc.get("IVA"));
+		c.setNetto((double) doc.get("NETTO"));
+		c.setVariazione((double) doc.get("VARIAZIONE"));
 		ObjectId id = (ObjectId) doc.get("_id");
 		c.set_id(id.toString());
 		return c;
