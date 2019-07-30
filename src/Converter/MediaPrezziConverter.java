@@ -40,6 +40,7 @@ public class MediaPrezziConverter {
 		ObjectId id = (ObjectId) doc.get("_id");
 		c.set_id(id.toString());
 		return c;
+		
 	}
 
 }
