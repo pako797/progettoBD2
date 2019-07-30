@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -43,6 +44,26 @@ public class MongoDBPrezzoDAO {
 			data.add(p);
 		}
 		return data;
+	}
+	
+	public List<Prezzo> ricercaAvanzata(int id, double prezzo, String carburante){
+		List<Prezzo> data = new ArrayList<Prezzo>();
+		
+		BasicDBObject andQuery = new BasicDBObject();
+		List<BasicDBObject> obj = new ArrayList<BasicDBObject>();
+		obj.add(new BasicDBObject("idImpianto", id));
+		obj.add(new BasicDBObject("descCarburante", carburante));
+		obj.add(new BasicDBObject("prezzo", new BasicDBObject("$lt", prezzo)));
+		
+		andQuery.put("$and", obj);
+
+		DBCursor cursor = col.find(andQuery);
+		while (cursor.hasNext()) {
+			DBObject doc = cursor.next();
+			Prezzo p = PrezzoConverter.toPrezzo(doc);
+			data.add(p);		}
+		return data;
+
 	}
 
 }

@@ -2,6 +2,9 @@
 <%
 Stazione stazione = (Stazione) session.getAttribute("stazione");
 
+List<Stazione> risultatoRicerca = (ArrayList<Stazione>) session.getAttribute("ricercaAvanzata");
+
+
 if(stazione == null){
 	response.sendRedirect("./dettagli.jsp");
 	return;
@@ -57,9 +60,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 					<%} %>
 					
 					
-					<%if(admin==null){ %>
-					<a class="btn btn-primary btn-lg btn-block" href = "./ConfrontaPrezzi">Confronta prezzi</a>
-					<%} %>
+					
+					<%if((risultatoRicerca == null) || (admin == null)){ %>
+				<a class="btn btn-primary btn-lg btn-block"  href="./comparazione.jsp">Confronta</a>
+				<%}%>
+					
 
 				</ul>
 
@@ -131,8 +136,16 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<hr class="mb-4">
 
 				<hr class="mb-4">
+				
+				<%if(risultatoRicerca != null){ %>
+				<a class="btn btn-primary btn-lg btn-block"  href="./ricercaAvanzataRisultati.jsp">Ritorna
+					ai risultati</a>
+				<%}else{ %>
 				<a class="btn btn-primary btn-lg btn-block"  href="./ricercaComune.jsp">Ritorna
 					ai risultati</a>
+				
+				<%} %>
+			
 
 				<br>
 			</div>
