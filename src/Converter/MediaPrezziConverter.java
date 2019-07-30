@@ -24,6 +24,7 @@ public class MediaPrezziConverter {
 		if (c.get_id() != null)
 			builder = builder.append("_id", new ObjectId(c.get_id()));
 		return builder.get();
+		
 	}
 	
 	
