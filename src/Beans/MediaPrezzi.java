@@ -8,9 +8,9 @@ public class MediaPrezzi {
 	private int prodotto_id;
 	private double prezzo;
 	private double accisa;
-	private int iva;
+	private double iva;
 	private double netto;
-	private double variazione;
+	private String variazione;
 	
 	public String get_id() {
 		return _id;
@@ -52,11 +52,11 @@ public class MediaPrezzi {
 		this.accisa = accisa;
 	}
 
-	public int getIva() {
+	public double getIva() {
 		return iva;
 	}
 
-	public void setIva(int iva) {
+	public void setIva(double iva) {
 		this.iva = iva;
 	}
 
@@ -68,11 +68,11 @@ public class MediaPrezzi {
 		this.netto = netto;
 	}
 
-	public double getVariazione() {
+	public String getVariazione() {
 		return variazione;
 	}
 
-	public void setVariazione(double variazione) {
+	public void setVariazione(String variazione) {
 		this.variazione = variazione;
 	}
 

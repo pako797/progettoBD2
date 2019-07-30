@@ -34,9 +34,9 @@ public class MediaPrezziConverter {
 		c.setProdotto_nome((String) doc.get("PRODOTTO_NOME"));
 		c.setPrezzo((Double) doc.get("PREZZO"));
 		c.setAccisa((Double) doc.get("ACCISA"));
-		c.setIva((Integer) doc.get("IVA"));
+		c.setIva((Double) doc.get("IVA"));
 		c.setNetto((Double) doc.get("NETTO"));
-		c.setVariazione((Double) doc.get("VARIAZIONE"));
+		c.setVariazione((String) doc.get("VARIAZIONE"));
 		ObjectId id = (ObjectId) doc.get("_id");
 		c.set_id(id.toString());
 		return c;

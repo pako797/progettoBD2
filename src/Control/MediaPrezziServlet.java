@@ -1,11 +1,19 @@
 package Control;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mongodb.MongoClient;
+
+import Beans.MediaPrezzi;
+import database.MongoDBMediaPrezziDAO;
+import database.MongoDBStazioneDAO;
 
 /**
  * Servlet implementation class MediaPrezziServlet
@@ -26,8 +34,13 @@ public class MediaPrezziServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub r
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		MongoClient mongo = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
+		MongoDBMediaPrezziDAO mediaPrezziDAO = new MongoDBMediaPrezziDAO(mongo);
+		List<MediaPrezzi> m=  mediaPrezziDAO.readAllMediaPrezzi();
+	
+		request.getSession().setAttribute("mediaLuglio", m);
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
+
 	}
 
 	/**
