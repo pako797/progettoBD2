@@ -1,0 +1,302 @@
+[
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 1,
+    "PRODOTTO_NOME": "Benzina",
+    "PREZZO": 1625.87,
+    "ACCISA": 728.4,
+    "IVA": 293.19,
+    "NETTO": 604.28,
+    "VARIAZIONE": 10.64
+  },
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 2,
+    "PRODOTTO_NOME": "Gasolio auto",
+    "PREZZO": 1519.7,
+    "ACCISA": 617.4,
+    "IVA": 274.04,
+    "NETTO": 628.26,
+    "VARIAZIONE": 8.21
+  },
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 5,
+    "PRODOTTO_NOME": "GPL",
+    "PREZZO": 656.03,
+    "ACCISA": 147.27,
+    "IVA": 118.3,
+    "NETTO": 390.46,
+    "VARIAZIONE": 2.29
+  },
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 3,
+    "PRODOTTO_NOME": "Gasolio riscaldamento",
+    "PREZZO": 1337.46,
+    "ACCISA": 403.21,
+    "IVA": 241.18,
+    "NETTO": 693.07,
+    "VARIAZIONE": 9.67
+  },
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 6,
+    "PRODOTTO_NOME": "O.C. fluido BTZ S<=1%",
+    "PREZZO": 874.8,
+    "ACCISA": 166.84,
+    "IVA": 79.53,
+    "NETTO": 628.43,
+    "VARIAZIONE": 10.7
+  },
+  {
+    "DATA_RILEVAZIONE": "29/04/2019",
+    "PRODOTTO_ID": 8,
+    "PRODOTTO_NOME": "O.C. denso BTZ S>1%",
+    "PREZZO": 511,
+    "ACCISA": 31.39,
+    "IVA": 0,
+    "NETTO": 479.61,
+    "VARIAZIONE": 16
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 1,
+    "PRODOTTO_NOME": "Benzina",
+    "PREZZO": 1615.23,
+    "ACCISA": 728.4,
+    "IVA": 291.27,
+    "NETTO": 595.56,
+    "VARIAZIONE": 10.59
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 2,
+    "PRODOTTO_NOME": "Gasolio auto",
+    "PREZZO": 1511.49,
+    "ACCISA": 617.4,
+    "IVA": 272.56,
+    "NETTO": 621.53,
+    "VARIAZIONE": 5.99
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 5,
+    "PRODOTTO_NOME": "GPL",
+    "PREZZO": 653.74,
+    "ACCISA": 147.27,
+    "IVA": 117.89,
+    "NETTO": 388.58,
+    "VARIAZIONE": 0.5
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 3,
+    "PRODOTTO_NOME": "Gasolio riscaldamento",
+    "PREZZO": 1327.79,
+    "ACCISA": 403.21,
+    "IVA": 239.44,
+    "NETTO": 685.14,
+    "VARIAZIONE": 4.03
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 6,
+    "PRODOTTO_NOME": "O.C. fluido BTZ S<=1%",
+    "PREZZO": 864.1,
+    "ACCISA": 166.84,
+    "IVA": 78.55,
+    "NETTO": 618.71,
+    "VARIAZIONE": "#CAMPO!"
+  },
+  {
+    "DATA_RILEVAZIONE": "22/04/2019",
+    "PRODOTTO_ID": 8,
+    "PRODOTTO_NOME": "O.C. denso BTZ S>1%",
+    "PREZZO": 495,
+    "ACCISA": 31.39,
+    "IVA": 0,
+    "NETTO": 463.61,
+    "VARIAZIONE": "#CAMPO!"
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 1,
+    "PRODOTTO_NOME": "Benzina",
+    "PREZZO": 1604.64,
+    "ACCISA": 728.4,
+    "IVA": 289.36,
+    "NETTO": 586.88,
+    "VARIAZIONE": 16.04
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 2,
+    "PRODOTTO_NOME": "Gasolio auto",
+    "PREZZO": 1505.5,
+    "ACCISA": 617.4,
+    "IVA": 271.48,
+    "NETTO": 616.62,
+    "VARIAZIONE": 6.34
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 5,
+    "PRODOTTO_NOME": "GPL",
+    "PREZZO": 653.24,
+    "ACCISA": 147.27,
+    "IVA": 117.8,
+    "NETTO": 388.17,
+    "VARIAZIONE": -0.68
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 3,
+    "PRODOTTO_NOME": "Gasolio riscaldamento",
+    "PREZZO": 1323.76,
+    "ACCISA": 403.21,
+    "IVA": 238.71,
+    "NETTO": 681.84,
+    "VARIAZIONE": 7.21
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 6,
+    "PRODOTTO_NOME": "O.C. fluido BTZ S<=1%",
+    "PREZZO": 864.3,
+    "ACCISA": 166.84,
+    "IVA": 78.57,
+    "NETTO": 618.89,
+    "VARIAZIONE": 2.3
+  },
+  {
+    "DATA_RILEVAZIONE": "15/04/2019",
+    "PRODOTTO_ID": 8,
+    "PRODOTTO_NOME": "O.C. denso BTZ S>1%",
+    "PREZZO": 496.33,
+    "ACCISA": 31.39,
+    "IVA": 0,
+    "NETTO": 464.94,
+    "VARIAZIONE": -0.23
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 1,
+    "PRODOTTO_NOME": "Benzina",
+    "PREZZO": 1588.6,
+    "ACCISA": 728.4,
+    "IVA": 286.47,
+    "NETTO": 573.73,
+    "VARIAZIONE": 15.04
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 2,
+    "PRODOTTO_NOME": "Gasolio auto",
+    "PREZZO": 1499.16,
+    "ACCISA": 617.4,
+    "IVA": 270.34,
+    "NETTO": 611.42,
+    "VARIAZIONE": 1.45
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 5,
+    "PRODOTTO_NOME": "GPL",
+    "PREZZO": 653.92,
+    "ACCISA": 147.27,
+    "IVA": 117.92,
+    "NETTO": 388.73,
+    "VARIAZIONE": -2.48
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 3,
+    "PRODOTTO_NOME": "Gasolio riscaldamento",
+    "PREZZO": 1316.55,
+    "ACCISA": 403.21,
+    "IVA": 237.41,
+    "NETTO": 675.93,
+    "VARIAZIONE": 7.72
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 6,
+    "PRODOTTO_NOME": "O.C. fluido BTZ S<=1%",
+    "PREZZO": 862,
+    "ACCISA": 166.84,
+    "IVA": 78.36,
+    "NETTO": 616.8,
+    "VARIAZIONE": 2.7
+  },
+  {
+    "DATA_RILEVAZIONE": "08/04/2019",
+    "PRODOTTO_ID": 8,
+    "PRODOTTO_NOME": "O.C. denso BTZ S>1%",
+    "PREZZO": 496.56,
+    "ACCISA": 31.39,
+    "IVA": 0,
+    "NETTO": 465.17,
+    "VARIAZIONE": 5.78
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 1,
+    "PRODOTTO_NOME": "Benzina",
+    "PREZZO": 1573.56,
+    "ACCISA": 728.4,
+    "IVA": 283.76,
+    "NETTO": 561.4,
+    "VARIAZIONE": 10.74
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 2,
+    "PRODOTTO_NOME": "Gasolio auto",
+    "PREZZO": 1497.71,
+    "ACCISA": 617.4,
+    "IVA": 270.08,
+    "NETTO": 610.23,
+    "VARIAZIONE": 0.52
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 5,
+    "PRODOTTO_NOME": "GPL",
+    "PREZZO": 656.4,
+    "ACCISA": 147.27,
+    "IVA": 118.37,
+    "NETTO": 390.76,
+    "VARIAZIONE": 0.37
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 3,
+    "PRODOTTO_NOME": "Gasolio riscaldamento",
+    "PREZZO": 1308.83,
+    "ACCISA": 403.21,
+    "IVA": 236.02,
+    "NETTO": 669.6,
+    "VARIAZIONE": 1.49
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 6,
+    "PRODOTTO_NOME": "O.C. fluido BTZ S<=1%",
+    "PREZZO": 859.3,
+    "ACCISA": 166.84,
+    "IVA": 78.12,
+    "NETTO": 614.34,
+    "VARIAZIONE": -0.2
+  },
+  {
+    "DATA_RILEVAZIONE": "01/04/2019",
+    "PRODOTTO_ID": 8,
+    "PRODOTTO_NOME": "O.C. denso BTZ S>1%",
+    "PREZZO": 490.78,
+    "ACCISA": 31.39,
+    "IVA": 0,
+    "NETTO": 459.39,
+    "VARIAZIONE": 0.56
+  }
+]
