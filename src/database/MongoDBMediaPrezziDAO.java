@@ -36,6 +36,20 @@ public class MongoDBMediaPrezziDAO {
 		return mediaPrezzi;
 	}
 	
+	public List<MediaPrezzi> readMediaPrezziSettimanali(String coll, MongoClient mongo,String tipo_carburante){
+		DBCollection collection = mongo.getDB("carburante").getCollection(coll);
+		List<MediaPrezzi> mediaPrezzi = new ArrayList<MediaPrezzi>();
+		DBObject query = BasicDBObjectBuilder.start()
+				.append("PRODOTTO_NOME", tipo_carburante).get();
+		DBCursor cursor = collection.find(query);
+		while (cursor.hasNext()) {
+			DBObject doc = cursor.next();
+			MediaPrezzi c = MediaPrezziConverter.toMediaPrezzi(doc);
+			mediaPrezzi.add(c);
+		}
+		return mediaPrezzi;
+	}
+	
 
 
 }
