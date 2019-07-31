@@ -33,11 +33,11 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 		<div class="row">
 						<div class="col-md-4 mx-auto">
 		
-			<form method="GET" action="">
+			<form method="GET" action="MediaPrezziServlet">
 
 
 					<div class="form-group row">
-						<input class="form-control" type="date" name="data">
+						<input required class="form-control" type="date" name="data">
 						<br>
 						<br>
 						<div class="col-md-4 mx-auto">

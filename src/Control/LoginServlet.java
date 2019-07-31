@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+        request.getSession().invalidate();
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 		 // Password crittografata e codificata Base64 letta dal database

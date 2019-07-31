@@ -24,10 +24,10 @@ public class MongoDBMediaPrezziDAO {
 		this.col = mongo.getDB("carburante").getCollection("prezziSettimaneLuglio");
 	}
 	
-	public List<MediaPrezzi> readAllMediaPrezzi() {
+	public List<MediaPrezzi> readAllMediaPrezzi(String temp) {
 		List<MediaPrezzi> mediaPrezzi = new ArrayList<MediaPrezzi>();
 		DBObject query = BasicDBObjectBuilder.start()
-				.append("DATA_RILEVAZIONE", "29/07/2019").get();
+				.append("DATA_RILEVAZIONE", temp).get();
 		DBCursor cursor = col.find(query).sort(new BasicDBObject("PRODOTTO_NOME",1));
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();

@@ -45,9 +45,19 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
       </h1>
     </div>
     
+    
+    <%if(mediaPrezzo.size() == 0){ %>
+     <div class="text-center mb-4">
+          <h3 >Nessun dato disponibile</h3>
+	</div>
+    <%}else{ %>
+    
     <div class="text-center mb-4">
           <h3 >Rilevazione del <%=mediaPrezzo.get(0).getData_rilevazione() %></h3>
 	</div>
+    <%}%>
+    
+    
     
     
     
@@ -69,7 +79,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 			%>
     <tr>
 				<td><%=data.getProdotto_nome()%></td>
-				<td><%=data.getPrezzo()+"" %></td>
+				<td><strong><%=data.getPrezzo()+"" %></strong></td>
 				<td><%=data.getAccisa()+"" %></td>
 				<td><%=data.getIva()+""%></td>
 				<td><%=data.getNetto()+""%></td>
