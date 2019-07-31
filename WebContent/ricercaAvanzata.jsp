@@ -50,6 +50,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 	<%@include file="header.jsp"%>
 
+	
+
 	<div class="container">
 		<div class="py-5 text-center">
 			<h2>Ricerca avanzata</h2>

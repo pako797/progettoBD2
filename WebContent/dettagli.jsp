@@ -61,8 +61,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 					
 					
 					
-					<%if((risultatoRicerca == null) || (admin == null)){ %>
-				<a class="btn btn-primary btn-lg btn-block"  href="./comparazione.jsp">Confronta</a>
+					<%if((risultatoRicerca == null) && (admin == null)){ %>
+				<a class="btn btn-primary btn-lg btn-block"  href="./ConfrontaPrezzi">Confronta</a>
 				<%}%>
 					
 

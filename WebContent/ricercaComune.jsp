@@ -20,12 +20,13 @@
 <meta name="viewport"
 	content="width=device-width, user-scalable=no,
 initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <title>Risultato Ricerca</title>
 
@@ -75,7 +76,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<td><%=data.getTipoImpianto()%></td>
 				<td><%=data.getComune()%></td>
 				<td><%=data.getIndirizzo()%></td>
-				<%if(((confronto == null) || (confronto.booleanValue() == false)) && (admin==null)){ %>
+				<%if(((confronto == null)) && (admin==null)){ %>
 				<td><a href="./DettagliStazione?id=<%=data.getIdImpianto() %>" class="btn btn-primary">Dettagli</a></td>
 				<%} %>
 				<%if(admin!=null){ %>
