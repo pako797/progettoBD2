@@ -1,4 +1,5 @@
-<%List<MediaPrezzi> mediaPrezzo = (ArrayList<MediaPrezzi>)session.getAttribute("mediaLuglio"); 
+<%
+List<MediaPrezzi> mediaPrezzo = (ArrayList<MediaPrezzi>)session.getAttribute("mediaLuglio"); 
 
 if(mediaPrezzo == null){
 	response.sendRedirect("./index.jsp");
@@ -25,6 +26,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -62,7 +64,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     </thead>
          <tbody>
     <%
-				for (MediaPrezzi data : mediaPrezzo) {
+	int i=1;			
+    for (MediaPrezzi data : mediaPrezzo) {
 			%>
     <tr>
 				<td><%=data.getProdotto_nome()%></td>
@@ -71,9 +74,14 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<td><%=data.getIva()+""%></td>
 				<td><%=data.getNetto()+""%></td>
 				<td><%=data.getVariazione()%></td>
-		
-	
+				<input type="hidden"  class="prezzo<%=i%>"  value=<%=data.getPrezzo()%>>
+				<input type="hidden"  class="accisa<%=i%>"  value=<%=data.getAccisa()%>>
+				<input type="hidden" class="iva<%=i%>"  value=<%=data.getIva()%>>
+				<input type="hidden" class="netto<%=i%>"  value=<%=data.getNetto()%>>
+			    <input type="hidden" class="variazione<%=i%>"  value=<%=data.getVariazione()%>>
+				
 				<%
+				i++;
 		}
 	%>
 			</tr>
@@ -83,108 +91,46 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <br>
 <br>
 <br>
-<div class="container">
-<div id="canvas-holder" style="width:40%">
-	<div class="chartjs-size-monitor">
-	<div class="chartjs-size-monitor-expand">
-	<div class=""></div>
-	</div>
-	<div class="chartjs-size-monitor-shrink">
-	<div class=""></div>
-	</div>
-	</div>
-		<canvas id="chart-area" style="display: block; height: 193px; width: 386px;" width="1013" height="506" class="chartjs-render-monitor"></canvas>
-	</div>
-<button id="randomizeData">Randomize Data</button>
-<button id="addDataset">Add Dataset</button>
-<button id="removeDataset">Remove Dataset</button>
-
+<div class="row">
+<div class="col-md-4">
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+</div>
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+ <div id="piechart2" style="width: 900px; height: 500px;"></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+ <div id="piechart3" style="width: 900px; height: 500px;"></div>
+</div>
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+ <div id="piechart4" style="width: 900px; height: 500px;"></div>
+</div>
+<div class="col-md-2">
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+ <div id="piechart5" style="width: 900px; height: 500px;"></div>
+</div>
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+ <div id="piechart6" style="width: 900px; height: 500px;"></div>
+</div>
+<div class="col-md-2">
+</div>
 </div>
 
 
-<script type="text/javascript">
-
-var randomScalingFactor = function() {
-	return Math.round(Math.random() * 100);
-};
-
-var config = {
-	type: 'pie',
-	data: {
-		datasets: [{
-			data: [
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
-				randomScalingFactor(),
-			],
-			backgroundColor: [
-				window.chartColors.red,
-				window.chartColors.orange,
-				window.chartColors.yellow,
-				window.chartColors.green,
-				window.chartColors.blue,
-			],
-			label: 'Dataset 1'
-		}],
-		labels: [
-			'Red',
-			'Orange',
-			'Yellow',
-			'Green',
-			'Blue'
-		]
-	},
-	options: {
-		responsive: true
-	}
-};
-
-window.onload = function() {
-	var ctx = document.getElementById('chart-area').getContext('2d');
-	window.myPie = new Chart(ctx, config);
-};
-
-document.getElementById('randomizeData').addEventListener('click', function() {
-	config.data.datasets.forEach(function(dataset) {
-		dataset.data = dataset.data.map(function() {
-			return randomScalingFactor();
-		});
-	});
-
-	window.myPie.update();
-});
-
-var colorNames = Object.keys(window.chartColors);
-document.getElementById('addDataset').addEventListener('click', function() {
-	var newDataset = {
-		backgroundColor: [],
-		data: [],
-		label: 'New dataset ' + config.data.datasets.length,
-	};
-
-	for (var index = 0; index < config.data.labels.length; ++index) {
-		newDataset.data.push(randomScalingFactor());
-
-		var colorName = colorNames[index % colorNames.length];
-		var newColor = window.chartColors[colorName];
-		newDataset.backgroundColor.push(newColor);
-	}
-
-	config.data.datasets.push(newDataset);
-	window.myPie.update();
-});
-
-document.getElementById('removeDataset').addEventListener('click', function() {
-	config.data.datasets.splice(0, 1);
-	window.myPie.update();
-});
-
-</script>
 
 
-
+    <script type="text/javascript" src="./js/chart.js">
+  </script>
 
 
 </body>
