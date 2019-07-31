@@ -145,6 +145,7 @@ function drawChart6() {
 
 	var options = {
 		title :  'O.C. Fluido BTZ S<=1%'
+			
 	};
 
 	var chart = new google.visualization.PieChart(document
