@@ -53,6 +53,29 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 </div>
 </div>
 
+<div class="row">
+<div class="col-md-5">
+<div id="chart_div3"></div>
+</div>
+<div class="col-md-1">
+</div>
+<div class="col-md-5">
+<div id="chart_div4"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+<div id="chart_div5"></div>
+</div>
+<div class="col-md-1">
+</div>
+<div class="col-md-5">
+<div id="chart_div6"></div>
+</div>
+</div>
+
+
 <script type="text/javascript" src="./js/chartMesi.js"></script>
 
 </body>
