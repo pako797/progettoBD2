@@ -46,7 +46,6 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 			<%
 				for (Stazione data : risultatoRicerca) {
 					if(data.getPrezziCarburante().size() > 0){
-						System.out.println("prova");
 					for (Prezzo temp : data.getPrezziCarburante()) {
 			%>
 			<tr>

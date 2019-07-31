@@ -16,6 +16,11 @@
 		session.removeAttribute("stazioneConfronto");
 
 	}
+	
+	List<Stazione> risultatoRicerca = (ArrayList<Stazione>) session.getAttribute("ricercaAvanzata");
+	if (risultatoRicerca != null) {
+		session.removeAttribute("ricercaAvanzata");
+	}
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

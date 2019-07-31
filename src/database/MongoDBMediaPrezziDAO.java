@@ -3,6 +3,7 @@ package database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -27,7 +28,7 @@ public class MongoDBMediaPrezziDAO {
 		List<MediaPrezzi> mediaPrezzi = new ArrayList<MediaPrezzi>();
 		DBObject query = BasicDBObjectBuilder.start()
 				.append("DATA_RILEVAZIONE", "29/07/2019").get();
-		DBCursor cursor = col.find(query);
+		DBCursor cursor = col.find(query).sort(new BasicDBObject("PRODOTTO_NOME",1));
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();
 			MediaPrezzi c = MediaPrezziConverter.toMediaPrezzi(doc);
