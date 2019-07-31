@@ -106,16 +106,16 @@
   // terzo
   
   google.charts.load('current', {'packages':['line', 'corechart']});
-  google.charts.setOnLoadCallback(drawChar2);
+  google.charts.setOnLoadCallback(drawChar3);
 
-function drawChart2() {
+function drawChart3() {
 
 	  var prezzoAprile2 = parseFloat(document.getElementsByClassName("aprile2")[0].value);
 	   	var prezzoMaggio2 = parseFloat(document.getElementsByClassName("maggio2")[0].value);
 	   	var prezzoGiugno2 = parseFloat(document.getElementsByClassName("giugno2")[0].value);
 	   	var prezzoLuglio2 = parseFloat(document.getElementsByClassName("luglio2")[0].value);
 	   	
-  var chartDiv = document.getElementById('chart_div2');
+  var chartDiv = document.getElementById('chart_div3');
 
   var data = new google.visualization.DataTable();
   data.addColumn('date', 'Month');
@@ -147,28 +147,28 @@ function drawChart2() {
   };
 
 
-  function drawMaterialChart2() {
+  function drawMaterialChart3() {
     var materialChart = new google.charts.Line(chartDiv);
     materialChart.draw(data, materialOptions);
   }
 
-  drawMaterialChart2();
+  drawMaterialChart3();
 
 }
 
 // quarto
 
 google.charts.load('current', {'packages':['line', 'corechart']});
-google.charts.setOnLoadCallback(drawChart3);
+google.charts.setOnLoadCallback(drawChart4);
 
-function drawChart3() {
+function drawChart4() {
 
   var prezzoAprile3 = parseFloat(document.getElementsByClassName("aprile3")[0].value);
    	var prezzoMaggio3 = parseFloat(document.getElementsByClassName("maggio3")[0].value);
    	var prezzoGiugno3 = parseFloat(document.getElementsByClassName("giugno3")[0].value);
    	var prezzoLuglio3 = parseFloat(document.getElementsByClassName("luglio3")[0].value);
    	
-var chartDiv = document.getElementById('chart_div3');
+var chartDiv = document.getElementById('chart_div4');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -200,28 +200,28 @@ var materialOptions = {
 };
 
 
-function drawMaterialChart3() {
+function drawMaterialChart4() {
   var materialChart = new google.charts.Line(chartDiv);
   materialChart.draw(data, materialOptions);
 }
 
-drawMaterialChart3();
+drawMaterialChart4();
 
 }
 
 // cinque
 
 google.charts.load('current', {'packages':['line', 'corechart']});
-google.charts.setOnLoadCallback(drawChart4);
+google.charts.setOnLoadCallback(drawChart5);
 
-function drawChart4() {
+function drawChart5() {
 
   var prezzoAprile4 = parseFloat(document.getElementsByClassName("aprile4")[0].value);
    	var prezzoMaggio4 = parseFloat(document.getElementsByClassName("maggio4")[0].value);
    	var prezzoGiugno4 = parseFloat(document.getElementsByClassName("giugno4")[0].value);
    	var prezzoLuglio4 = parseFloat(document.getElementsByClassName("luglio4")[0].value);
    	
-var chartDiv = document.getElementById('chart_div4');
+var chartDiv = document.getElementById('chart_div5');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -253,28 +253,28 @@ var materialOptions = {
 };
 
 
-function drawMaterialChart4() {
+function drawMaterialChart5() {
   var materialChart = new google.charts.Line(chartDiv);
   materialChart.draw(data, materialOptions);
 }
 
-drawMaterialChart4();
+drawMaterialChart5();
 
 }
 
 // sesto
 
 google.charts.load('current', {'packages':['line', 'corechart']});
-google.charts.setOnLoadCallback(drawChart5);
+google.charts.setOnLoadCallback(drawChart6);
 
-function drawChart5() {
+function drawChart6() {
 
   var prezzoAprile5 = parseFloat(document.getElementsByClassName("aprile5")[0].value);
    	var prezzoMaggio5 = parseFloat(document.getElementsByClassName("maggio5")[0].value);
    	var prezzoGiugno5 = parseFloat(document.getElementsByClassName("giugno5")[0].value);
    	var prezzoLuglio5 = parseFloat(document.getElementsByClassName("luglio5")[0].value);
    	
-var chartDiv = document.getElementById('chart_div5');
+var chartDiv = document.getElementById('chart_div6');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -306,11 +306,11 @@ var materialOptions = {
 };
 
 
-function drawMaterialChart5() {
+function drawMaterialChart6() {
   var materialChart = new google.charts.Line(chartDiv);
   materialChart.draw(data, materialOptions);
 }
 
-drawMaterialChart5();
+drawMaterialChart6();
 
 }
