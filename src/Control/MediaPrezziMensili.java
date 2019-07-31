@@ -21,14 +21,14 @@ import database.MongoDBStazioneDAO;
 /**
  * Servlet implementation class mediaPrezziMensili
  */
-@WebServlet("/mediaPrezziMensili")
-public class mediaPrezziMensili extends HttpServlet {
+@WebServlet("/MediaPrezziMensili")
+public class MediaPrezziMensili extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public mediaPrezziMensili() {
+	public MediaPrezziMensili() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
