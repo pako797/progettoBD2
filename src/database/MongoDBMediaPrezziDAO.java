@@ -24,11 +24,12 @@ public class MongoDBMediaPrezziDAO {
 		this.col = mongo.getDB("carburante").getCollection("prezziSettimaneLuglio");
 	}
 	
-	public List<MediaPrezzi> readAllMediaPrezzi(String temp) {
+	public List<MediaPrezzi> readAllMediaPrezzi(String temp, String coll, MongoClient mongo) {
+		DBCollection collection = mongo.getDB("carburante").getCollection(coll);
 		List<MediaPrezzi> mediaPrezzi = new ArrayList<MediaPrezzi>();
 		DBObject query = BasicDBObjectBuilder.start()
-				.append("DATA_RILEVAZIONE", temp).get();
-		DBCursor cursor = col.find(query).sort(new BasicDBObject("PRODOTTO_NOME",1));
+				.append("DATA_RILEVAZIONE",temp).get();
+		DBCursor cursor = collection.find(query).sort(new BasicDBObject("PRODOTTO_NOME",1));
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();
 			MediaPrezzi c = MediaPrezziConverter.toMediaPrezzi(doc);
@@ -46,6 +47,7 @@ public class MongoDBMediaPrezziDAO {
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();
 			MediaPrezzi c = MediaPrezziConverter.toMediaPrezzi(doc);
+			System.out.println(c.getProdotto_nome());
 			mediaPrezzi.add(c);
 		}
 		return mediaPrezzi;

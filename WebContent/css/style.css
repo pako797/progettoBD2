@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+.search{
+	background: #f5f5f5;
+}
+.add{
+	background: #f5f5f5;
+}
+.home{
+	background: #f5f5f5;
+}
+.dettagli{
+	background: #f5f5f5;
+}
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+

@@ -19,7 +19,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
   crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class ="home">
  <%@include file="header.jsp" %>
 
 <br>

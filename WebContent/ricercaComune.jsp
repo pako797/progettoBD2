@@ -20,6 +20,9 @@
 <meta name="viewport"
 	content="width=device-width, user-scalable=no,
 initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/mio.css">
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -84,7 +87,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 				<%} %>
 				<%if((confronto != null) && (confronto.booleanValue() == true)){ %>
 				<%if(stazione != null && stazione.getIdImpianto() == data.getIdImpianto()){ %>
-				<td><a  href="" class="btn btn-success isDisabled">Confronta</a></td>			
+				<td><a  href="" class="btn btn-success isDisabled" >Confronta</a></td>			
 				<%}else{ %>
 				<td><a href="./ConfrontaPrezzi?id=<%=data.getIdImpianto() %>" class="btn btn-success">Confronta</a></td>			
 				
