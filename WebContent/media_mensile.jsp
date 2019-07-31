@@ -27,7 +27,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
     <%
 	int i=0;			
-    for (i=0; i< media_prezzi_mensili_Luglio.size();i++) {
+    for (i=0; i< 6;i++) {
 			%>
 				<input type="hidden"  class="aprile<%=i%>"  value=<%=media_prezzi_mensili_Aprile.get(i).getPrezzo()%>>
 				<input type="hidden"  class="maggio<%=i%>"  value=<%=media_prezzi_mensili_Maggio.get(i).getPrezzo()%>>
@@ -36,7 +36,8 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
 				
 				<%
-				i++;
+				System.out.println(media_prezzi_mensili_Aprile.get(i).getPrezzo());
+				
 		}
 	%>
 	

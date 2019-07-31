@@ -62,7 +62,7 @@
 	   	var prezzoGiugno1 = parseFloat(document.getElementsByClassName("giugno1")[0].value);
 	   	var prezzoLuglio1 = parseFloat(document.getElementsByClassName("luglio1")[0].value);
 	   	
-    var chartDiv = document.getElementById('chart_div2');
+    var chartDiv2 = document.getElementById('chart_div2');
 
     var data = new google.visualization.DataTable();
     data.addColumn('date', 'Month');
@@ -95,7 +95,7 @@
 
   
     function drawMaterialChart2() {
-      var materialChart = new google.charts.Line(chartDiv);
+      var materialChart = new google.charts.Line(chartDiv2);
       materialChart.draw(data, materialOptions);
     }
 
@@ -106,7 +106,7 @@
   // terzo
   
   google.charts.load('current', {'packages':['line', 'corechart']});
-  google.charts.setOnLoadCallback(drawChar3);
+  google.charts.setOnLoadCallback(drawChart3);
 
 function drawChart3() {
 
@@ -115,7 +115,7 @@ function drawChart3() {
 	   	var prezzoGiugno2 = parseFloat(document.getElementsByClassName("giugno2")[0].value);
 	   	var prezzoLuglio2 = parseFloat(document.getElementsByClassName("luglio2")[0].value);
 	   	
-  var chartDiv = document.getElementById('chart_div3');
+  var chartDiv3 = document.getElementById('chart_div3');
 
   var data = new google.visualization.DataTable();
   data.addColumn('date', 'Month');
@@ -148,7 +148,7 @@ function drawChart3() {
 
 
   function drawMaterialChart3() {
-    var materialChart = new google.charts.Line(chartDiv);
+    var materialChart = new google.charts.Line(chartDiv3);
     materialChart.draw(data, materialOptions);
   }
 
@@ -168,7 +168,7 @@ function drawChart4() {
    	var prezzoGiugno3 = parseFloat(document.getElementsByClassName("giugno3")[0].value);
    	var prezzoLuglio3 = parseFloat(document.getElementsByClassName("luglio3")[0].value);
    	
-var chartDiv = document.getElementById('chart_div4');
+var chartDiv4 = document.getElementById('chart_div4');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -201,7 +201,7 @@ var materialOptions = {
 
 
 function drawMaterialChart4() {
-  var materialChart = new google.charts.Line(chartDiv);
+  var materialChart = new google.charts.Line(chartDiv4);
   materialChart.draw(data, materialOptions);
 }
 
@@ -221,7 +221,7 @@ function drawChart5() {
    	var prezzoGiugno4 = parseFloat(document.getElementsByClassName("giugno4")[0].value);
    	var prezzoLuglio4 = parseFloat(document.getElementsByClassName("luglio4")[0].value);
    	
-var chartDiv = document.getElementById('chart_div5');
+var chartDiv5 = document.getElementById('chart_div5');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -254,7 +254,7 @@ var materialOptions = {
 
 
 function drawMaterialChart5() {
-  var materialChart = new google.charts.Line(chartDiv);
+  var materialChart = new google.charts.Line(chartDiv5);
   materialChart.draw(data, materialOptions);
 }
 
@@ -274,7 +274,7 @@ function drawChart6() {
    	var prezzoGiugno5 = parseFloat(document.getElementsByClassName("giugno5")[0].value);
    	var prezzoLuglio5 = parseFloat(document.getElementsByClassName("luglio5")[0].value);
    	
-var chartDiv = document.getElementById('chart_div6');
+var chartDiv6 = document.getElementById('chart_div6');
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Month');
@@ -307,7 +307,7 @@ var materialOptions = {
 
 
 function drawMaterialChart6() {
-  var materialChart = new google.charts.Line(chartDiv);
+  var materialChart = new google.charts.Line(chartDiv6);
   materialChart.draw(data, materialOptions);
 }
 
