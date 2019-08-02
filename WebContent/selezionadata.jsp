@@ -17,7 +17,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
 </head>
-<body>
+<body class ="home">
 
 	<%@include file="header.jsp"%>
 

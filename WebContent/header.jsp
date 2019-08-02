@@ -18,7 +18,7 @@ String uri = request.getRequestURI();
 	
 <title>header</title>
 </head>
-<body class = "home">
+<body>
 	<nav class="mio-nav navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"

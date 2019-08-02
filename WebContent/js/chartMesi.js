@@ -25,7 +25,7 @@
 
       var materialOptions = {
         chart: {
-          title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+          title: document.getElementsByClassName("nome0")[0].value
         },
         height: 400,
         series: {
@@ -78,7 +78,7 @@
 
     var materialOptions = {
       chart: {
-        title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+        title: document.getElementsByClassName("nome1")[0].value
       },
       height: 400,
       series: {
@@ -131,7 +131,7 @@ function drawChart3() {
 
   var materialOptions = {
     chart: {
-      title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+      title: document.getElementsByClassName("nome2")[0].value
     },
     height: 400,
     series: {
@@ -184,7 +184,7 @@ data.addRows([
 
 var materialOptions = {
   chart: {
-    title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+    title: document.getElementsByClassName("nome3")[0].value
   },
   height: 400,
   series: {
@@ -237,7 +237,7 @@ data.addRows([
 
 var materialOptions = {
   chart: {
-    title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+    title: document.getElementsByClassName("nome4")[0].value
   },
   height: 400,
   series: {
@@ -290,7 +290,7 @@ data.addRows([
 
 var materialOptions = {
   chart: {
-    title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+    title: document.getElementsByClassName("nome5")[0].value
   },
   height: 400,
   series: {
