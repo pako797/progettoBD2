@@ -3,6 +3,7 @@ package database;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -24,7 +25,7 @@ public class MongoDBProvinceDAO {
 	
 	public List<Province> readAllProvince() {
 		List<Province> data = new ArrayList<Province>();
-		DBCursor cursor = col.find();
+		DBCursor cursor = col.find().sort(new BasicDBObject("Sigla",1));
 		while (cursor.hasNext()) {
 			DBObject doc = cursor.next();
 			Province p = ProvinceConverter.toProvince(doc);

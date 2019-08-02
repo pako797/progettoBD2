@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mongodb.MongoClient;
-import com.sun.glass.ui.Pixels.Format;
-
 import Beans.MediaPrezzi;
 import database.MongoDBMediaPrezziDAO;
 import database.MongoDBStazioneDAO;

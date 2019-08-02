@@ -25,7 +25,7 @@ public class MongoDBPrezzoDAO {
 		this.col = mongo.getDB("carburante").getCollection("prezzi");
 	}
 
-	public Prezzo createStazione(Prezzo p) {
+	public Prezzo createPrezzo(Prezzo p) {
 		DBObject doc = PrezzoConverter.toDbObject(p);
 		this.col.insert(doc);
 		ObjectId id = (ObjectId) doc.get("_id");
