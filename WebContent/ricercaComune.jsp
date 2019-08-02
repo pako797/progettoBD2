@@ -49,6 +49,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<%
 		} else {
 	%>
+	<div class = "container">
 
 	<table id="example" class=" display table table-striped">
     <thead>
@@ -102,7 +103,7 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 	<%
 		}
 	%>
-
+</div>
 
 </body>
 
